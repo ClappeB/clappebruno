@@ -1,0 +1,13 @@
+@extends('layouts.master')
+
+@section('page_description'){{__('page_description.contact_page')}}@endsection
+
+@section('content')
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    Contact
+                </div>
+            </div>
+        </div>
+@endsection

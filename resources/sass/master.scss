@@ -1,0 +1,28 @@
+// Fonts
+@import 'fonts';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+nav {
+    font-family: $walter-turncoat;
+}
+
+body {
+    font-family: $font-base $font-default;
+    margin-bottom: 150px;
+}
+
+@media (max-width: 767px) {
+    body {
+        margin-bottom: 300px;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

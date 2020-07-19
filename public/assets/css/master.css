@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "cascadia-code";
+  src: url("../fonts/cascadia-code/Cascadia.ttf");
+}
+@font-face {
+  font-family: "comic-relief";
+  src: url("../fonts/comic-relief/ComicRelief.ttf");
+}
+@font-face {
+  font-family: "merienda";
+  src: url("../fonts/merienda/Merienda-Regular.ttf");
+}
+@font-face {
+  font-family: "pompiere";
+  src: url("../fonts/pompiere/Pompiere-Regular.otf");
+}
+@font-face {
+  font-family: "risque";
+  src: url("../fonts/risque/Risque-Regular.otf");
+}
+@font-face {
+  font-family: "source-sans-pro";
+  src: url("../fonts/source-sans-pro/SourceSansPro-Regular.otf");
+}
+@font-face {
+  font-family: "walter-turncoat";
+  src: url("../fonts/walter-turncoat/walterturncoat.ttf");
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+nav {
+  font-family: "walter-turncoat";
+}
+
+body {
+  font-family: "Segoe UI" "sans-serif";
+  margin-bottom: 150px;
+}
+
+@media (max-width: 767px) {
+  body {
+    margin-bottom: 300px;
+  }
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/*# sourceMappingURL=master.css.map */

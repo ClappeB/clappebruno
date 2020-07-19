@@ -1,0 +1,47 @@
+//variables
+$fonts-file : "../fonts/";
+$cascadia-code : "cascadia-code";
+$comic-relief : "comic-relief";
+$merienda : "merienda";
+$pompiere : "pompiere";
+$risque : "risque";
+$source-sans-pro : "source-sans-pro";
+$walter-turncoat : "walter-turncoat";
+$font-base : "Segoe UI";
+$font-default : "sans-serif";
+
+@font-face {
+    font-family: $cascadia-code;
+    src: url($fonts-file + $cascadia-code + "/Cascadia.ttf");
+}
+
+@font-face {
+    font-family: $comic-relief;
+    src: url($fonts-file + $comic-relief + "/ComicRelief.ttf");
+}
+
+@font-face {
+    font-family: $merienda;
+    src: url($fonts-file + $merienda + "/Merienda-Regular.ttf");
+}
+
+@font-face {
+    font-family: $pompiere;
+    src: url($fonts-file + $pompiere + "/Pompiere-Regular.otf");
+}
+
+@font-face {
+    font-family: $risque;
+    src: url($fonts-file + $risque + "/Risque-Regular.otf");
+}
+
+@font-face {
+    font-family: $source-sans-pro;
+    src: url($fonts-file + $source-sans-pro + "/SourceSansPro-Regular.otf");
+}
+
+@font-face {
+    font-family: $walter-turncoat;
+    src: url($fonts-file + $walter-turncoat + "/walterturncoat.ttf");
+}
+
