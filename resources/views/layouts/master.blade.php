@@ -6,7 +6,7 @@
     <body>
         <div id="app">
             @include('layouts.navbar')
-            <main class="py-4">
+            <main class="py-4 full-height container-fluid">
                 @yield('content')
             </main>
             @include('layouts.footer')

@@ -1,0 +1,11 @@
+.resume {
+    border: 0.2em solid black;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.galaxy-fold {
+    @media(max-width: 300px) {
+        margin-left: 30px;
+    }
+}

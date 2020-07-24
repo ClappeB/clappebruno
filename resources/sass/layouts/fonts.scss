@@ -1,0 +1,11 @@
+//variables
+$fonts-file : "/assets/fonts/";
+$walter-turncoat : "walter-turncoat";
+$font-base : "Segoe UI";
+$font-default : "sans-serif";
+
+@font-face {
+    font-family: $walter-turncoat;
+    src: url($fonts-file + $walter-turncoat + "/walterturncoat.ttf");
+}
+

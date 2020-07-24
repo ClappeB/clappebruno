@@ -11,10 +11,10 @@ return [
     |
     */
 
-    'site_name' => 'Clappe Bruno, personal website',
+    'site_name' => 'Clappe Bruno',
     'resume' => "My resume",
     'work' => "My work",
     'contact' => "Contact me",
     'legals' => "Legals",
-    'logo_alt' => "Clappe Bruno's logo"
+    'logo_alt' => "Clappe Bruno's logo",
 ];

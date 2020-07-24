@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\General;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 
 class GeneralController extends Controller
 {
@@ -16,7 +16,8 @@ class GeneralController extends Controller
     }
 
     public function ResumeDownload() {
-        return back();
+        $file_path = 'resources/resume/'.App::getLocale().'/'.__('resume.resume_name').'.pdf';
+        return response()->download($file_path);
     }
 
     public function work() {

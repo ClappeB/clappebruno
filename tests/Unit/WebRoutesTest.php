@@ -2,32 +2,45 @@
 
 namespace Tests\Unit;
 
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Tests\TestCase;
 
 class WebRoutesTest extends TestCase
 {
+    private static $languagesToTest = array('fr','en');
+
     public function testWelcome(){
-        $this->get(route('welcome'))->assertOk();
+        $this->routeOkWithAllLocales('welcome');
     }
 
     public function testResume(){
-        $this->get(route('resume'))->assertOk();
+        $this->routeOkWithAllLocales('resume');
     }
 
     public function testResumeDownload(){
-        $this->get(route('resume_download'))->assertRedirect();
+        foreach(self::$languagesToTest as $language){
+            $this->app->setLocale($language);
+            $this->get(route('resume_download'))->assertStatus(500);
+        }
     }
 
     public function testWork(){
-        $this->get(route('work'))->assertOk();
+        $this->routeOkWithAllLocales('work');
     }
 
     public function testContact(){
-        $this->get(route('contact'))->assertOk();
+        $this->routeOkWithAllLocales('contact');
     }
 
     public function testLegals(){
-        $this->get(route('legals'))->assertOk();
+        $this->routeOkWithAllLocales('legals');
+    }
+
+    private function routeOkWithAllLocales($routeName){
+        foreach(self::$languagesToTest as $language){
+            $this->app->setLocale($language);
+            $this->get(route($routeName))->assertOk();
+        }
     }
 
 }

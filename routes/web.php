@@ -25,7 +25,4 @@ Route::namespace('General')->group(function(){
 
 });
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();

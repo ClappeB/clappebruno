@@ -1,5 +1,5 @@
 // Fonts
-@import 'fonts';
+@import './fonts';
 
 html {
     position: relative;
@@ -11,13 +11,13 @@ nav {
 }
 
 body {
-    font-family: $font-base $font-default;
-    margin-bottom: 150px;
+    font-family: $font-base, $font-default;
+    margin-bottom: 240px;
 }
 
 @media (max-width: 767px) {
     body {
-        margin-bottom: 300px;
+        margin-bottom: 240px;
     }
 }
 
@@ -25,4 +25,8 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.white-wall {
+    background-image: url("resources/textures/wall.jpg");
 }
