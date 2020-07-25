@@ -1,4 +1,52 @@
+@import "mixins";
+
 .navbar-icon {
     width: 1.8em;
-    //width: 40px;
+}
+
+.navbar-link {
+    display:block;
+    padding: 0.3em 0.9em;
+    color: #DDDDDD;
+
+    @media(max-width: 809px) {
+        padding: 0.3em 0.6em;
+    }
+
+}
+
+.navbar-link:hover {
+    color:white;
+    text-decoration: none;
+    @include xborder(white dotted 2px);
+    @include xpadding(0.8em);
+    border-radius: 15px;
+
+    @media(max-width: 809px) {
+        @include xpadding(0.5em);
+    }
+
+}
+
+.navbar-brand:hover {
+    font-size: 1.425em;
+    padding: 0.12em;
+
+    @media(max-width: 880px) {
+        font-size: 1.325em;
+        @include ypadding(0.19em);
+    }
+
+    @media(max-width: 769px) {
+        font-size: 1.425em;
+        padding: 0.12em;
+    }
+
+}
+
+.toggle-navbar {
+    display: none;
+    @media(max-width: 769px) {
+        display: inline;
+    }
 }

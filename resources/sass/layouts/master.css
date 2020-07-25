@@ -7,11 +7,11 @@
 }
 
 .planks {
-  background-image: linear-gradient(rgba(20, 20, 20, 0.05), rgba(20, 20, 20, 0.05)), url("../../../resources/textures/planks.jpg");
+  background-image: url("../../../resources/textures/planks.jpg");
 }
 
 .dark-rock {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(20, 20, 20, 0.7)), url("../../../resources/textures/dark_rock.jpg");
+  background-image: url("../../../resources/textures/dark_rock.jpg");
 }
 
 html {
@@ -33,11 +33,11 @@ nav {
 }
 
 .body-desktop {
-  margin-bottom: 220px;
+  margin-bottom: 240px;
 }
 
 .body-mobile {
-  margin-bottom: 200px;
+  margin-bottom: 180px;
 }
 
 footer {

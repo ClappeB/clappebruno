@@ -1,0 +1,12 @@
+//Variables
+$texture_file : "../../../resources/textures/";
+
+.planks {
+    background-image: linear-gradient(rgba(20,20,20,0.05), rgba(20,20,20,0.05)), url($texture_file + "planks.jpg");
+}
+
+.dark-rock {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(20,20,20, 0.7)), url($texture_file + "dark_rock.jpg");
+}
+
+

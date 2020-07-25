@@ -1,0 +1,14 @@
+@mixin xborder($property){
+    border-left: $property;
+    border-right: $property;
+}
+
+@mixin ypadding($property){
+    padding-top: $property;
+    padding-bottom: $property;
+}
+
+@mixin xpadding($property){
+    padding-right: $property;
+    padding-left: $property;
+}

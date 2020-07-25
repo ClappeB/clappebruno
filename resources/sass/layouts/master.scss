@@ -1,32 +1,39 @@
 // Fonts
-@import './fonts';
+@import 'fonts';
+
+// Textures
+@import "textures";
 
 html {
     position: relative;
     min-height: 100%;
 }
 
+main {
+    min-height: 100%;
+    height: 100%;
+}
+
 nav {
     font-family: $walter-turncoat;
 }
 
-body {
+%body-base {
     font-family: $font-base, $font-default;
-    margin-bottom: 240px;
 }
 
-@media (max-width: 767px) {
-    body {
-        margin-bottom: 240px;
-    }
+.body-desktop {
+    @extend %body-base;
+    margin-bottom: 220px;
+}
+
+.body-mobile {
+    @extend %body-base;
+    margin-bottom: 200px;
 }
 
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-}
-
-.white-wall {
-    background-image: url("resources/textures/wall.jpg");
 }

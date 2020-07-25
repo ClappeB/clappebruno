@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "walter-turncoat";
+  src: url("/assets/fonts/walter-turncoat/walterturncoat.ttf");
+}
+.white-text {
+  color: white;
+}
+
+/*# sourceMappingURL=fonts.css.map */

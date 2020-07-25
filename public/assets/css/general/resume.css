@@ -1,13 +1,42 @@
-.resume {
+.resume, .resume-border {
   border: 0.2em solid black;
   border-radius: 10px;
   padding: 2px;
+  width: 100%;
 }
 
-@media (max-width: 300px) {
-  .galaxy-fold {
-    margin-left: 30px;
+.resume {
+  height: 66.5rem;
+}
+@media (max-width: 1199px) {
+  .resume {
+    height: 56rem;
   }
+}
+@media (max-width: 992px) {
+  .resume {
+    height: 42rem;
+  }
+}
+@media (max-width: 768px) {
+  .resume {
+    height: 38.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .resume {
+    height: 32rem;
+  }
+}
+
+.resume-download-button {
+  color: white;
+  background-color: #0096B4;
+}
+
+.resume-download-button:hover {
+  color: white;
+  background-color: #262626;
 }
 
 /*# sourceMappingURL=resume.css.map */

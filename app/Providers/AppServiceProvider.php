@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Jenssegers\Agent\Agent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        Blade::if('NotDesktop', function(){
+            $agent = new Agent();
+            return ($agent->isMobile() || $agent->isTablet());
+        });
+
+        Blade::if('Desktop', function(){
+            $agent = new Agent();
+            return $agent->isDesktop();
+        });
+
     }
 }

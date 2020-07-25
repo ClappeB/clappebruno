@@ -2,4 +2,58 @@
   width: 1.8em;
 }
 
+.navbar-link {
+  display: block;
+  padding: 0.3em 0.9em;
+  color: #DDDDDD;
+}
+@media (max-width: 809px) {
+  .navbar-link {
+    padding: 0.3em 0.6em;
+  }
+}
+
+.navbar-link:hover {
+  color: white;
+  text-decoration: none;
+  border-left: white dotted 2px;
+  border-right: white dotted 2px;
+  padding-right: 0.8em;
+  padding-left: 0.8em;
+  border-radius: 15px;
+}
+@media (max-width: 809px) {
+  .navbar-link:hover {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+  }
+}
+
+.navbar-brand:hover {
+  font-size: 1.425em;
+  padding: 0.12em;
+}
+@media (max-width: 880px) {
+  .navbar-brand:hover {
+    font-size: 1.325em;
+    padding-top: 0.19em;
+    padding-bottom: 0.19em;
+  }
+}
+@media (max-width: 769px) {
+  .navbar-brand:hover {
+    font-size: 1.425em;
+    padding: 0.12em;
+  }
+}
+
+.toggle-navbar {
+  display: none;
+}
+@media (max-width: 769px) {
+  .toggle-navbar {
+    display: inline;
+  }
+}
+
 /*# sourceMappingURL=navbar.css.map */

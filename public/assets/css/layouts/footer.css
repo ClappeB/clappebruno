@@ -1,0 +1,22 @@
+.footer-logo {
+  width: 6em;
+}
+
+.footer-link {
+  color: #AAAAAA;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration: none;
+  border-left: white dotted 2px;
+  border-right: white dotted 2px;
+  border-radius: 15px;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+/*# sourceMappingURL=footer.css.map */
