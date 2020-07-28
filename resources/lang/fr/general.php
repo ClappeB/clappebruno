@@ -17,4 +17,6 @@ return [
     'contact' => "Me contacter",
     'legals' => "Mentions légales",
     'logo_alt' => "Logo de Clappe Bruno",
+
+    'date_format' => "d F Y",
 ];

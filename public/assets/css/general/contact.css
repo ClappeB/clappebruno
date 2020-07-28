@@ -1,0 +1,148 @@
+.decorated-label {
+  min-width: 60px;
+  color: white;
+  border: black solid 2px;
+  background-color: black;
+  border-radius: 0 10em 0 0;
+  padding: 0.2em 0;
+  margin: 0;
+}
+@media (max-width: 576px) {
+  .decorated-label {
+    border-radius: 1em 1em 0 0;
+  }
+}
+
+.decorated-label-area {
+  border: black solid 1px;
+  border-top-left-radius: 0;
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+@media (max-width: 576px) {
+  .decorated-label-area {
+    border-radius: 0 0 1em 1em;
+  }
+}
+.decorated-label-area:focus {
+  box-shadow: none;
+  border: black solid 3px;
+  border-bottom-width: 1px;
+  border-top-width: 1px;
+  background-color: white;
+}
+.decorated-label-area:hover {
+  border-right-width: 4px;
+}
+
+#message {
+  resize: none;
+}
+
+.animated-area .animation-adding {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.animated-area .animation-adding:nth-child(1) {
+  transform: rotate(0deg);
+}
+.animated-area .animation-adding:nth-child(2) {
+  bottom: -0.25px;
+  transform: rotate(180deg);
+}
+.animated-area .animation-adding:before {
+  margin-left: 2px;
+  content: "";
+  position: absolute;
+  width: 99.5%;
+  border-bottom: white solid 3px;
+  animation: animate 2s linear 1;
+  animation-fill-mode: forwards;
+}
+
+.animated-area:focus-within .animation-adding {
+  display: block;
+}
+@media (max-width: 576px) {
+  .animated-area:focus-within :nth-child(2) {
+    width: 94.55%;
+    margin-left: 12.5px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleX(1);
+    transform-origin: left;
+    border-bottom: white solid 3px;
+  }
+  99% {
+    transform: scaleX(0);
+    transform-origin: right;
+    border-bottom: white solid 3px;
+  }
+  100% {
+    border: none;
+  }
+}
+.decorated-button {
+  background-color: black;
+  color: white;
+  border-radius: 0 15px 0 15px;
+  border: transparent solid 2px;
+  box-shadow: none;
+}
+.decorated-button:hover {
+  color: white;
+  animation: animate-button 1.3s linear 2 alternate;
+  animation-fill-mode: forwards;
+}
+.decorated-button:active, .decorated-button:focus {
+  box-shadow: none;
+}
+
+@keyframes animate-button {
+  0%, 20% {
+    background-color: black;
+    color: white;
+    border: transparent solid 2px;
+  }
+  80%, 100% {
+    background-color: white;
+    color: black;
+    border: black solid 2px;
+  }
+}
+.card-header, .card-footer {
+  border: none;
+}
+
+.card {
+  background-color: transparent;
+  background-image: radial-gradient(ellipse closest-corner, transparent 97%, black 97%), linear-gradient(to right, black 0.5%, rgba(0, 0, 0, 0.2) 0.5%, rgba(150, 150, 150, 0.2) 25%, rgba(150, 150, 150, 0.2) 75%, rgba(0, 0, 0, 0.2) 99.5%, black 99.5%);
+  border: black solid 0.5px;
+}
+@media (max-width: 767px) {
+  .card {
+    background-image: radial-gradient(ellipse closest-corner, transparent 96%, black 96%), linear-gradient(to right, black 0.5%, rgba(0, 0, 0, 0.2) 0.5%, rgba(150, 150, 150, 0.2) 25%, rgba(150, 150, 150, 0.2) 75%, rgba(0, 0, 0, 0.2) 99.5%, black 99.5%);
+  }
+}
+@media (max-width: 576px) {
+  .card {
+    background-image: radial-gradient(ellipse closest-corner, transparent 95%, black 95%), linear-gradient(to right, black 0.5%, rgba(0, 0, 0, 0.2) 0.5%, rgba(150, 150, 150, 0.2) 25%, rgba(150, 150, 150, 0.2) 75%, rgba(0, 0, 0, 0.2) 99.5%, black 99.5%);
+  }
+}
+
+.card-header, .card-footer {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: black;
+}
+
+.hgt {
+  height: 100%;
+}
+
+/*# sourceMappingURL=contact.css.map */

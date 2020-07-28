@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Agent\Agent;
@@ -35,6 +37,8 @@ class AppServiceProvider extends ServiceProvider
             $agent = new Agent();
             return $agent->isDesktop();
         });
+
+        Carbon::setLocale(App::getLocale());
 
     }
 }

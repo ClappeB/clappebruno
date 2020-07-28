@@ -17,4 +17,6 @@ return [
     'contact' => "Contact me",
     'legals' => "Legals",
     'logo_alt' => "Clappe Bruno's logo",
+
+    'date_format' => "F d, Y",
 ];
