@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::namespace('General')->group(function(){
     Route::get('/', 'GeneralController@welcome')->name('welcome');
+    Route::post('language/{lang}', 'GeneralController@language')->name('language');
     Route::get(__('routes.work'), 'GeneralController@work')->name('work');
     Route::get(__('routes.contact'), 'GeneralController@contact')->name('contact');
     Route::get(__('routes.legals'), 'GeneralController@legals')->name('legals');

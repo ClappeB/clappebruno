@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\App;
 
 class GeneralController extends Controller
 {
+
+    public function language(String $locale){
+        $locale = in_array($locale, config('app.supported_locales')) ? $locale : config('app.fallback_locale');
+        session()->put('locale', $locale);
+        return back();
+    }
+
     public function welcome() {
         return view('general.welcome');
     }
