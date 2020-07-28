@@ -69,7 +69,7 @@ $text-area-color-focus: rgba(255,255,255,1);
         width: 99.5%;
         border-bottom: white solid 3px;
 
-        animation: animate 2s linear 1;
+        animation: animate-text-area 2s linear 1;
         animation-fill-mode: forwards;
     }
 }
@@ -81,20 +81,20 @@ $text-area-color-focus: rgba(255,255,255,1);
 
     :nth-child(2){
         @media(max-width: 576px) {
-            width: 94.55%;
+            width: 92.25%;
             margin-left: 12.5px;
         }
     }
 }
 
-@keyframes animate {
+@keyframes animate-text-area {
     0% {
         transform:scaleX(1);
         transform-origin: left;
         border-bottom: white solid 3px;
     }
 
-    99% {
+    99.9% {
         transform:scaleX(0);
         transform-origin: right;
         border-bottom: white solid 3px;
