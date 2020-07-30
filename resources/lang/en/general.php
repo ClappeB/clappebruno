@@ -15,6 +15,7 @@ return [
     'resume' => "My resume",
     'work' => "My work",
     'contact' => "Contact me",
+    'language' => "Language",
     'legals' => "Legals",
     'logo_alt' => "Clappe Bruno's logo",
 

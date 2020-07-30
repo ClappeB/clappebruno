@@ -11,7 +11,7 @@
         <div class="row flex-center position-ref full-height justify-content-center align-items-center mb-3">
             @Desktop
                 <div class="m-0 p-0 col-12 col-sm-10 col-md-8">
-                    <iframe class="resume" type="application/pdf" src="{{ url('resources/resume/'.\Illuminate\Support\Facades\App::getLocale().'/'.__('resume.resume_name').'.pdf') }}#toolbar=0&view=fit" frameborder="0" allowtransparency="true" style="background-color: transparent"></iframe>
+                    <iframe class="resume" type="application/pdf" src="{{ asset('resources/resume/'.\Illuminate\Support\Facades\App::getLocale().'/'.__('resume.resume_name').'.pdf') }}#toolbar=0&view=fit" frameborder="0"></iframe>
                 </div>
             @else
                 <img class="col-10 col-md-8 col-lg-6 resume-border" src="{{asset('resources/resume/'.\Illuminate\Support\Facades\App::getLocale().'/'.__('resume.resume_name').'.png')}}">

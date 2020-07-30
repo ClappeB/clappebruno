@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 .idea/
 .dependances.txt
+/app/Http/Controllers/Test/TestController.php
+/resources/views/test/test.blade.php

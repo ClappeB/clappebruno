@@ -1,3 +1,4 @@
+@import 'fonts';
 @import "mixins";
 
 .navbar-icon {
@@ -26,27 +27,175 @@
         @include xpadding(0.5em);
     }
 
+    @media(max-width: 767px) {
+        $nav-x-padding: 0.8em;
+        padding-right: $nav-x-padding;
+        padding-left: $nav-x-padding;
+    }
+
 }
 
-.navbar-brand:hover {
-    font-size: 1.425em;
-    padding: 0.12em;
+.navbar-brand {
 
-    @media(max-width: 880px) {
-        font-size: 1.325em;
-        @include ypadding(0.19em);
-    }
+    transition: all 0.5s;
 
-    @media(max-width: 769px) {
+    &:hover {
         font-size: 1.425em;
         padding: 0.12em;
-    }
 
+        @media(max-width: 880px) {
+            font-size: 1.325em;
+            @include ypadding(0.19em);
+        }
+
+        @media(max-width: 767px) {
+            font-size: 1.425em;
+            padding: 0.12em;
+        }
+    }
 }
 
 .toggle-navbar {
     display: none;
-    @media(max-width: 769px) {
+    @media(max-width: 767px) {
         display: inline;
     }
+}
+
+.inverse-toggle-navbar {
+    display: none;
+    @media(min-width: 768px) {
+        display: inline;
+    }
+}
+
+.language-globe {
+    color: white;
+
+    &:hover, &:focus, &:active{
+        color: white;
+    }
+
+}
+
+.active{
+    background-color: black;
+    &:active{
+        background-color: #00e0e0;
+    }
+}
+
+.flag {
+    width: 2em;
+    height: 1.2em;
+    border: black solid 2px;
+    border-radius: 0.4em;
+}
+
+.flag-button {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    transition: font-size 0.7s;
+    color: rgb(200,200,200);
+
+    &:hover, &:focus{
+        color: white;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.2em;
+    }
+
+}
+
+$active-color: white;
+%active-shared {
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    font-size: 16px;
+    color: $active-color;
+    height:0px;
+    width: 1.5em;
+    top: calc(50% - 1px);
+    border-top: white solid 2px;
+}
+
+.dropdown-item {
+
+    &:hover{
+        background-color: transparent;
+    }
+
+    &.active {
+        $active-border: $active-color solid 4px;
+
+        background-color: transparent;
+        border-right: $active-border;
+        border-left: $active-border;
+        border-radius: 4em;
+
+    }
+
+    &.active:after {
+        @extend %active-shared;
+        right: -5px;
+    }
+
+    &.active:before {
+        @extend %active-shared;
+        left: -5px;
+    }
+
+}
+/*
+%dropdown-shared {
+    position: absolute;
+    content: '';
+    background-color: transparent;
+    z-index: -1;
+    //border: white solid 1.2px;
+}
+*/
+.dropdown-menu{
+    border: white solid 1.2px;
+    background-color: rgba(0,0,0,0.5);
+/*
+    &:before {
+        @extend %dropdown-shared;
+        top: calc(50% - 60px/2);
+        left: -2px;
+        height: 60px;
+        width: calc(100% + 2px*2);
+        //background-image: linear-gradient(to right, rgba(160,160,160,1) 2%, transparent 2%, transparent 98%, rgba(200,200,200,1) 98%);
+        border-top: none;
+        border-bottom: none;
+    }
+
+    &:after {
+        @extend %dropdown-shared;
+        top: -2px;
+        left: calc(50% - 80px/2);
+        height: calc(100% + 2px*2);
+        width: 80px;
+        border-right: none;
+        border-left: none;
+    }
+*/
+}
+
+.language-link{
+    color: rgb(200,200,200);
+    border: none;
+    margin-top: 2em;
+    transition: color 1s;
+
+    &:hover, &:focus{
+        border: none;
+        text-decoration: none;
+        color: white;
+    }
+
 }

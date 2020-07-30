@@ -15,6 +15,7 @@ return [
     'contact' => "contact",
     'resume' => "resume",
     'resume_download' => "download",
-    'legals' => "legals"
+    'legals' => "legals",
+    'language' => "language"
 
 ];

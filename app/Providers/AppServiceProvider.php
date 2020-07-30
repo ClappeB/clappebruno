@@ -5,8 +5,10 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Agent\Agent;
+use App\Http\Controllers\General\GeneralController;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,7 +40,23 @@ class AppServiceProvider extends ServiceProvider
             return $agent->isDesktop();
         });
 
-        Carbon::setLocale(App::getLocale());
+        Blade::directive('RouteWithLocale', function(String $routeName){
+            $routeName = str_replace("'", "", $routeName);
+            return (GeneralController::isUniversalRoute($routeName))? "route('$routeName')" : "route('".$routeName.GeneralController::LOCALE_SEPARATOR."'.\Illuminate\Support\Facades\App::getLocale())";
+        });
+
+        Blade::directive('RouteNameWithLocale', function(String $routeName){
+            $routeName = str_replace("'", "", $routeName);
+            return (GeneralController::isUniversalRoute($routeName))? ('"'.$routeName.'"') : ("'".$routeName.GeneralController::LOCALE_SEPARATOR."'.\Illuminate\Support\Facades\App::getLocale()");
+        });
+
+        Blade::directive('CurrentRouteName', function(){
+            return '"'.Route::currentRouteName().'"';
+        });
+
+        Blade::if('RightLocale', function($locale){
+            return $locale==App::getLocale();
+        });
 
     }
 }

@@ -13,8 +13,9 @@ return [
 
     'work' => "realisations",
     'contact' => "contact",
-    'resume' => "curriculum",
+    'resume' => "cv",
     'resume_download' => "telecharger",
-    'legals' => "mentions-legales"
+    'legals' => "mentions-legales",
+    'language' => "langue"
 
 ];

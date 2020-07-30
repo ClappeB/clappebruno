@@ -1,5 +1,11 @@
 .footer-logo {
+  margin-top: 1em;
   width: 6em;
+  transition: width 0.7s, margin-top 0.7s;
+}
+.footer-logo:hover {
+  margin-top: 0.1em;
+  width: 7em;
 }
 
 .footer-link {

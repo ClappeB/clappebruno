@@ -5,6 +5,7 @@ namespace App\Http\Middleware\General;
 use Carbon\Carbon;
 use Closure;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
 
 class Language
 {

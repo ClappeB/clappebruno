@@ -15,6 +15,7 @@ return [
     'resume' => "Mon CV",
     'work' => "Mes réalisations",
     'contact' => "Me contacter",
+    'language' => "Langue",
     'legals' => "Mentions légales",
     'logo_alt' => "Logo de Clappe Bruno",
 
