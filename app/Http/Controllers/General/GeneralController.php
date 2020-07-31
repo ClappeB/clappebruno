@@ -33,7 +33,7 @@ class GeneralController extends Controller
     }
 
     public function resumeDownload() {
-        $file_path = 'resources/resume/'.App::getLocale().'/'.__('resume.resume_name').'.pdf';
+        $file_path = public_path('resources/resume/'.App::getLocale().'/'.__('resume.resume_name').'.pdf');
         return response()->download($file_path);
     }
 
