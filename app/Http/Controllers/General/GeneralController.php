@@ -6,21 +6,20 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Helpers\RoutesHelper;
 
 class GeneralController extends Controller
 {
-    public const LOCALE_SEPARATOR = '|';
-    public const UNIVERSAL_ROUTES = ['welcome', 'contact', 'resume_download'];
 
     public function language(String $newLocale){
         $newLocale = in_array($newLocale, config('app.supported_locales')) ? $newLocale : config('app.fallback_locale');
         $this->setAllLocales($newLocale);
-        $route_exploded = explode(self::LOCALE_SEPARATOR, request('previousRoute'));
+        $route_exploded = explode(RoutesHelper::LOCALE_SEPARATOR, request('previousRoute'));
 
         if(count($route_exploded)==1){
             return back();
         } else {
-            return redirect(\route($route_exploded[0].self::LOCALE_SEPARATOR.$newLocale));
+            return redirect(\route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale));
         }
 
     }
@@ -55,14 +54,6 @@ class GeneralController extends Controller
         App::setLocale($newLocale);
         Carbon::setLocale($newLocale);
         setlocale(LC_TIME, App::getLocale() ? $newLocale : config('app.locale'));
-    }
-
-    public static function isUniversalRoute(String $routeName){
-        return in_array($routeName,self::UNIVERSAL_ROUTES);
-    }
-
-    public static function addLocaleToRoute(String $routeName){
-        return $routeName.self::LOCALE_SEPARATOR.App::getLocale();
     }
 
 }

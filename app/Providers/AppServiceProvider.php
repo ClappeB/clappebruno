@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Agent\Agent;
-use App\Http\Controllers\General\GeneralController;
+use App\Http\Helpers\RoutesHelper;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -42,12 +42,12 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::directive('RouteWithLocale', function(String $routeName){
             $routeName = str_replace("'", "", $routeName);
-            return (GeneralController::isUniversalRoute($routeName))? "route('$routeName')" : "route('".$routeName.GeneralController::LOCALE_SEPARATOR."'.\Illuminate\Support\Facades\App::getLocale())";
+            return (RoutesHelper::isUniversalRoute($routeName))? "route('$routeName')" : "route('".RoutesHelper::formatRouteForView($routeName)."')";
         });
 
         Blade::directive('RouteNameWithLocale', function(String $routeName){
             $routeName = str_replace("'", "", $routeName);
-            return (GeneralController::isUniversalRoute($routeName))? ('"'.$routeName.'"') : ("'".$routeName.GeneralController::LOCALE_SEPARATOR."'.\Illuminate\Support\Facades\App::getLocale()");
+            return (RoutesHelper::isUniversalRoute($routeName))? ('"'.$routeName.'"') : ("'".RoutesHelper::formatRouteForView($routeName)."'");
         });
 
         Blade::directive('CurrentRouteName', function(){

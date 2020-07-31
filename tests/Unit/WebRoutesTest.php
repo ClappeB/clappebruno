@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Http\Helpers\RoutesHelper;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Tests\TestCase;
 
@@ -9,37 +10,40 @@ class WebRoutesTest extends TestCase
 {
     private static $languagesToTest = array('fr','en');
 
+    private const VIEW_GENERAL = 'general';
+
     public function testWelcome(){
-        $this->routeOkWithAllLocales('welcome');
+        $this->routeOkAndViewCorrectWithAllLocales('welcome', self::VIEW_GENERAL);
     }
 
     public function testResume(){
-        $this->routeOkWithAllLocales('resume');
+        $this->routeOkAndViewCorrectWithAllLocales('resume', self::VIEW_GENERAL);
     }
 
     public function testResumeDownload(){
         foreach(self::$languagesToTest as $language){
             $this->app->setLocale($language);
-            $this->get(route('resume_download'))->assertStatus(500);
+            $this->get(route(RoutesHelper::formatRouteForController('resume_download')))->assertStatus(500);
         }
     }
 
     public function testWork(){
-        $this->routeOkWithAllLocales('work');
+        $this->routeOkAndViewCorrectWithAllLocales('work', self::VIEW_GENERAL);
     }
 
     public function testContact(){
-        $this->routeOkWithAllLocales('contact');
+        $this->routeOkAndViewCorrectWithAllLocales('contact', self::VIEW_GENERAL);
     }
 
     public function testLegals(){
-        $this->routeOkWithAllLocales('legals');
+        $this->routeOkAndViewCorrectWithAllLocales('legals', self::VIEW_GENERAL);
     }
 
-    private function routeOkWithAllLocales($routeName){
+    private function routeOkAndViewCorrectWithAllLocales(String $routeName, String $folder=null){
+        $folder = ($folder==null) ? null : $folder.'.';
         foreach(self::$languagesToTest as $language){
             $this->app->setLocale($language);
-            $this->get(route($routeName))->assertOk();
+            $this->get(route(RoutesHelper::formatRouteForController($routeName)))->assertOk()->assertViewIs($folder.$routeName);
         }
     }
 

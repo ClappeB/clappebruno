@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \Illuminate\Support\Facades\App;
-use \App\Http\Controllers\General\GeneralController;
+use \App\Http\Helpers\RoutesHelper;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +22,14 @@ $previousLocale = App::getLocale();
 
 foreach (config('app.supported_locales') as $locale) {
     App::setLocale($locale);
-    $locale = GeneralController::LOCALE_SEPARATOR.$locale;
     Route::namespace('General')->group(function () use ($locale) {
         Route::get('/', 'GeneralController@welcome')->name('welcome');
-        Route::put(__('routes.language') . '/{locale}', 'GeneralController@language')->where('locale', '^[a-zA-Z]{2}$')->name('language'.$locale);
-        Route::get(__('routes.work'), 'GeneralController@work')->name('work'.$locale);
+        Route::put(__('routes.language') . '/{locale}', 'GeneralController@language')->where('locale', '^[a-zA-Z]{2}$')->name(RoutesHelper::addLocaleToRoute('language', $locale));
+        Route::get(__('routes.work'), 'GeneralController@work')->name(RoutesHelper::addLocaleToRoute('work', $locale));
         Route::get(__('routes.contact'), 'GeneralController@contact')->name('contact');
-        Route::get(__('routes.legals'), 'GeneralController@legals')->name('legals'.$locale);
+        Route::get(__('routes.legals'), 'GeneralController@legals')->name(RoutesHelper::addLocaleToRoute('legals', $locale));
 
-        Route::get(__('routes.resume'), 'GeneralController@resume')->name('resume'.$locale);
+        Route::get(__('routes.resume'), 'GeneralController@resume')->name(RoutesHelper::addLocaleToRoute('resume', $locale));
         Route::prefix(__('routes.resume'))->group(function () {
             Route::get(__('routes.resume_download'), 'GeneralController@resumeDownload')->name('resume_download');
         });
