@@ -14,12 +14,16 @@ class GeneralController extends Controller
     public function language(String $newLocale){
         $newLocale = in_array($newLocale, config('app.supported_locales')) ? $newLocale : config('app.fallback_locale');
         $this->setAllLocales($newLocale);
-        $route_exploded = explode(RoutesHelper::LOCALE_SEPARATOR, request('previousRoute'));
+
+        $previousRoute = (request()->ajax()) ? $this->retrieveRouteName(request('previousRoute')): request('previousRoute');
+
+        $route_exploded = explode(RoutesHelper::LOCALE_SEPARATOR, $previousRoute);
 
         if(count($route_exploded)==1){
-            return back();
+            return (request()->ajax()) ? back()->getTargetUrl() : back();
         } else {
-            return redirect(\route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale));
+            return (request()->ajax()) ? \route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale)
+                : redirect(\route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale));
         }
 
     }
@@ -54,6 +58,13 @@ class GeneralController extends Controller
         App::setLocale($newLocale);
         Carbon::setLocale($newLocale);
         setlocale(LC_TIME, App::getLocale() ? $newLocale : config('app.locale'));
+    }
+
+    private function retrieveRouteName($RouteURL){
+        $routeName = collect(Route::getRoutes())->first(function($route) use ($RouteURL){
+            return $route->matches(request()->create($RouteURL));
+        });
+        return $routeName->getName();
     }
 
 }

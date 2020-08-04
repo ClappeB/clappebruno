@@ -3,3 +3,7 @@
 <link href="{{ asset('assets/css/layouts/master.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/layouts/navbar.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/layouts/footer.css') }}" rel="stylesheet">
+
+@IsFirstVisit
+    <link href="{{asset('assets/css/general/first_visit.css')}}" rel="stylesheet">
+@endIsFirstVisit

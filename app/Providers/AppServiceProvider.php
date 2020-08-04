@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Helpers\VisitorHelper;
+use App\View\Components\test\cleanButton;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
@@ -56,6 +58,22 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('RightLocale', function($locale){
             return $locale==App::getLocale();
+        });
+
+        Blade::if('IsFirstVisit', function(){
+           return !VisitorHelper::isOldVisitor();
+        });
+
+        Blade::if('FirstVisit', function(){
+            if(!VisitorHelper::isOldVisitor()){
+                VisitorHelper::makeOldVisitor();
+                return true;
+            }
+            return false;
+        });
+
+        Blade::if('debug', function(){
+            return config('app.debug');
         });
 
     }

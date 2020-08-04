@@ -1,6 +1,6 @@
 @section('globe')
     <div class="dropdown">
-        <a class="language-globe language-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="language-globe language-link" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span>
                 <span class="inverse-toggle-navbar">{{__('general.language')}}</span>
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +19,7 @@
                                 @csrf
                                 @method('PUT')
                                 <button class="flag-button col-10" type="submit">
-                                    <a class="dropdown-item px-0 py-1  @RightLocale($language){{__('active')}}@endRightLocale"><img src="{{asset('assets/icons/'.$language.'_flag.png')}}" class="flag mr-2">{{$language}}</a>
+                                    <a class="dropdown-item px-0 py-1  @RightLocale($language){{__('active')}}@endRightLocale"><img src="{{asset('assets/icons/flags/'.$language.'_flag.png')}}" class="flag mr-2">{{$language}}</a>
                                 </button>
                             </form>
                         </div>

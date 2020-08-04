@@ -14,9 +14,12 @@ use \App\Http\Helpers\RoutesHelper;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::namespace('Test')->group(function(){
-    Route::any('/test', 'TestController@test');
-});
+
+if(config('app.debug')) {
+    Route::namespace('Test')->group(function () {
+        Route::any('/test', 'TestController@test')->name('test');
+    });
+}
 
 $previousLocale = App::getLocale();
 

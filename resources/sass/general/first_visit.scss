@@ -1,0 +1,74 @@
+.welcome-message {
+    font-size: 8em;
+    @media(max-width: 767px) {
+        font-size: 4em;
+    }
+    @media(max-width: 340px) {
+        font-size: 3em;
+    }
+    animation: welcome-message 1.5s 1 forwards;
+}
+
+@keyframes welcome-message {
+    0%, 100%{
+        color: transparent;
+    }
+    20%, 70%{
+        color: white;
+    }
+}
+
+.language-message {
+    font-size: 5em;
+    @media(max-width: 991px) {
+        font-size: 4em;
+    }
+    @media(max-width: 767px) {
+        font-size: 2.5em;
+    }
+    @media(max-width: 340px) {
+        font-size: 1.5em;
+    }
+    animation: language-message 1s 1 forwards;
+}
+
+@keyframes language-message {
+    0%{
+        color: transparent;
+        opacity: 0;
+    }
+    100%{
+        color: white;
+        opacity: 1;
+    }
+}
+
+.no-display {
+    display: none;
+}
+
+.FV-flag {
+    font-size: 1.5em;
+    border: black solid 2px;
+    border-radius: 0.3em;
+    width: 2.2em;
+    height: 1.4em;
+
+    &:hover, &:focus{
+        background-color: transparent;
+        box-shadow: 0 0 10px 8px rgba(220,220,220,0.8);
+        outline: none;
+    }
+
+}
+
+.link-flag {
+    background-color: transparent;
+    cursor: pointer;
+
+    &:focus{
+        border: none;
+        outline: none;
+    }
+
+}

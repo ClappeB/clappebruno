@@ -13,4 +13,6 @@ yarn-error.log
 .idea/
 .dependances.txt
 /app/Http/Controllers/Test/TestController.php
+/app/view/components/test
 /resources/views/test/test.blade.php
+/resources/views/components/test
