@@ -59,7 +59,8 @@
   font-size: 1.5em;
   border: black solid 2px;
   border-radius: 0.3em;
-  overflow: hidden;
+  width: 2.2em;
+  height: 1.4em;
 }
 .FV-flag:hover, .FV-flag:focus {
   background-color: transparent;
@@ -67,11 +68,11 @@
   outline: none;
 }
 
-.FV-flag-img {
-  width: 2.2em;
-  height: 1.4em;
+.link-flag {
+  background-color: transparent;
+  cursor: pointer;
 }
-.FV-flag-img:focus {
+.link-flag:focus {
   border: none;
   outline: none;
 }

@@ -16,3 +16,6 @@ yarn-error.log
 /app/view/components/test
 /resources/views/test/test.blade.php
 /resources/views/components/test
+/public/assets/js/test
+/public/assets/css/test/
+/resources/sass/test/

@@ -8,7 +8,6 @@
 .resume {
   height: 66.5rem;
 }
-
 @media (max-width: 1199px) {
   .resume {
     height: 56rem;
@@ -29,6 +28,7 @@
     height: 32rem;
   }
 }
+
 .resume-download-button {
   color: white;
   background-color: #0096B4;
@@ -38,7 +38,5 @@
   color: white;
   background-color: #262626;
 }
-
-/*# sourceMappingURL=resume.css.map */
 
 /*# sourceMappingURL=resume.css.map */
