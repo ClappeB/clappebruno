@@ -14,9 +14,9 @@
         </div>
         <div class="row text-center d-flex justify-content-center mb-3">
             <div class="col-12 mb-3">
-                <h6 class="text-uppercase">
+                <span class="text-uppercase">
                     <a class="footer-link" href="{{@RouteWithLocale('legals')}}">{{__('general.legals')}}</a>
-                </h6>
+                </span>
             </div>
         </div>
     </div>

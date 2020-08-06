@@ -11,6 +11,7 @@
 .footer-link {
   color: #AAAAAA;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .footer-link:hover {
