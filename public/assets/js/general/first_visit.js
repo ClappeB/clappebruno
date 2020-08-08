@@ -10,8 +10,8 @@
     var FV_Flags = [];
     var FV_Decorating_Div = [];
 
-    initStyle();
-    addFlags();
+    FV_initStyle();
+    FV_addFlags();
 
     for(let i=0; i<2; i++){
         let divDecoratingElement = document.createElement('div');
@@ -29,7 +29,7 @@
 
 }
 
-function addFlags(){
+function FV_addFlags(){
     let pathToFlagFile = "/assets/icons/flags/";
     let flagIconName = '_flag.png';
 
@@ -40,41 +40,42 @@ function addFlags(){
         flag.classList.add('FV-flag-img');
 
         let linkFlag = document.createElement("button");
-        linkFlag.onclick=function(){languageChoose(flagNames[i])};
+        linkFlag.onclick=function(){FV_languageChoose(flagNames[i])};
         linkFlag.classList.add("FV-flag", "p-0", "mx-lg-5", "mx-md-3", "m-2");
         linkFlag.id=flagNames[i];
         //flag.tabIndex=0;
-        linkFlag.onmouseenter=function(){flagFocus(this)};
+        linkFlag.onmouseenter=function(){FV_flagFocus(this)};
         linkFlag.append(flag);
 
         FV_Flags.push(linkFlag);
     }
 }
 
-function flagFocus(element) {
+function FV_flagFocus(element) {
     element.focus();
 }
 
-function languageChoose(language) {
+function FV_languageChoose(language) {
     return $.ajax({
-        url: '/'+translation(defaultLanguage, "language-route")+'/'+language,
+        url: '/'+FV_translation(defaultLanguage, "language-route")+'/'+language,
         type: 'PUT',
         data: 'previousRoute='+window.location.href+'&_token='+getCSRFToken(),
         success: function(data){
             $(location).attr("href", data);
         },
         error: function () {
-            console.log(translation(defaultLanguage, 'ajax'));
+            console.log(FV_translation(defaultLanguage, 'ajax'));
         }
     });
 }
 
-function initStyle(){
+function FV_initStyle(){
     FV_Row.classList.add("row", "justify-content-center", "align-items-center", "h-100", "w-100",
         "text-center", "p-0", "m-0");
     FV_Row.style.position="fixed";
     FV_Row.style.backgroundColor="transparent";
     FV_Row.style.zIndex="10";
+    FV_Row.id='FV_Row';
 
     FV_Container.classList.add("container-fluid", "p-0");
 
@@ -87,47 +88,47 @@ function initStyle(){
     FV_Flag_Div.classList.add('col-12', 'm-0', 'p-0', 'no-display');
 }
 
-function changeDisplayedText(text){
+function FV_changeDisplayedText(text){
     FV_Text.textContent=text;
 }
 
-function welcome(){
-    clearFVDiv();
-    changeDisplayedText(translation(defaultLanguage, "welcome")+' !');
+function FV_welcome(){
+    FV_clearFVDiv();
+    FV_changeDisplayedText(FV_translation(defaultLanguage, "welcome")+' !');
     FV_Text.classList.add('welcome-message');
     FV_Decorating_Div.forEach(div => div.classList.remove("no-display"));
 }
 
-function blackScreen(){
+function FV_blackScreen(){
     FV_Row.style.backgroundColor="rgba(0,0,0,0.6)";
 }
 
-function choosingLanguage(){
-    clearFVDiv();
-    rearrangeStyleForFlagDisplay();
-    changeDisplayedText(translation(defaultLanguage, "language-choosing"));
+function FV_choosingLanguage(){
+    FV_clearFVDiv();
+    FV_rearrangeStyleForFlagDisplay();
+    FV_changeDisplayedText(FV_translation(defaultLanguage, "language-choosing"));
 }
 
-function rearrangeStyleForFlagDisplay() {
+function FV_rearrangeStyleForFlagDisplay() {
     FV_Text.classList.remove('welcome-message');
     FV_Text.classList.add("language-message");
 
     FV_Flag_Div.classList.remove('no-display');
     FV_Flag_Div.classList.add("language-message", "mt-2");
 
-    focusDefaultLanguageFlag();
+    FV_focusDefaultLanguageFlag();
 }
 
-function focusDefaultLanguageFlag() {
+function FV_focusDefaultLanguageFlag() {
     let FV_DefaultFocusedFlag = document.getElementById(defaultLanguage);
-    if(FV_DefaultFocusedFlag){flagFocus(FV_DefaultFocusedFlag);}
+    if(FV_DefaultFocusedFlag){FV_flagFocus(FV_DefaultFocusedFlag);}
 }
 
-function clearFVDiv(){
+function FV_clearFVDiv(){
     FV_Text.textContent=null;
 }
 
-function translation(language, message){
+function FV_translation(language, message){
     switch(language) {
         case 'fr':
             switch(message) {
@@ -168,7 +169,7 @@ function getCSRFToken(){
 }
 
 $(document).ready(function() {
-    blackScreen();
-    setTimeout(welcome, 500);
-    setTimeout(choosingLanguage, 2000);
+    FV_blackScreen();
+    setTimeout(FV_welcome, 500);
+    setTimeout(FV_choosingLanguage, 2000);
 });

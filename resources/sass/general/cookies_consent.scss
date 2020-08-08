@@ -1,0 +1,30 @@
+$side-color: rgba(0,200,0,0.8);
+$center-color: rgba(0,100,0,0.9);
+
+.CC_Row {
+    z-index: 5;
+    background-image: linear-gradient(to right, $side-color 0%, $center-color 15%, $center-color 85%, $side-color 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: white;
+}
+
+.CC_Text {
+    color: white;
+}
+
+.CC_Consent_Button:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.tooltip-inner {
+    background-color: $center-color;
+}
+
+.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.bs-tooltip-top .arrow::before {
+    border-top-color: $center-color;
+}

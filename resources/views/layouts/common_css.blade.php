@@ -7,3 +7,7 @@
 @IsFirstVisit
     <link href="{{asset('assets/css/general/first_visit.css')}}" rel="stylesheet">
 @endIsFirstVisit
+
+@CookiesConsent
+    <link href="{{asset('assets/css/general/cookies_consent.css')}}" rel="stylesheet">
+@endCookiesConsent

@@ -9,3 +9,8 @@
     <!-- Script for choosing language for first visit -->
     <script src="{{asset("assets/js/general/first_visit.js")}}"></script>
 @endFirstVisit
+
+@CookiesConsent
+    <!-- Script to warn that the site uses cookies -->
+    <script src="{{asset("assets/js/general/cookies_consent.js")}}"></script>
+@endCookiesConsent

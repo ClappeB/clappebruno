@@ -31,6 +31,7 @@ foreach (config('app.supported_locales') as $locale) {
         Route::get(__('routes.work'), 'GeneralController@work')->name(RoutesHelper::addLocaleToRoute('work', $locale));
         Route::get(__('routes.contact'), 'GeneralController@contact')->name('contact');
         Route::get(__('routes.legals'), 'GeneralController@legals')->name(RoutesHelper::addLocaleToRoute('legals', $locale));
+        Route::post('cookies', 'GeneralController@cookies')->name('cookies');
 
         Route::get(__('routes.resume'), 'GeneralController@resume')->name(RoutesHelper::addLocaleToRoute('resume', $locale));
         Route::prefix(__('routes.resume'))->group(function () {

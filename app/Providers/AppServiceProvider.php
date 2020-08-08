@@ -76,5 +76,9 @@ class AppServiceProvider extends ServiceProvider
             return config('app.debug');
         });
 
+        Blade::if('CookiesConsent', function(){
+            return !VisitorHelper::hasConsentedToCookies();
+        });
+
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\VisitorHelper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,10 @@ class GeneralController extends Controller
 
     public function legals() {
         return view('general.legals');
+    }
+
+    public function cookies(){
+        VisitorHelper::consentToCookies(request());
     }
 
     private function setAllLocales($newLocale){
