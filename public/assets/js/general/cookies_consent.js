@@ -6,10 +6,24 @@
     var CC_Consent_Button = document.createElement("button");
 
     CC_initElements();
+    createLinkAndModalBoxForMore();
 
     CC_Button_Div.append(CC_Consent_Button);
     CC_Row.append(CC_Button_Div);
     html.insertBefore(CC_Row, html.firstChild.nextSibling);
+}
+
+function CC_initElements(){
+    CC_Row.classList.add("row", "justify-content-center", "align-items-center",
+        "text-center", "p-0", "m-0", "CC_Row");
+    CC_Row.id='CC_Row';
+
+    CC_Button_Div.classList.add("CC_Text", "col-12");
+
+    CC_Consent_Button.classList.add("w-100", "btn", "text-white", "CC_No_Focus_Button");
+    CC_Consent_Button.textContent=CC_translation(defaultLanguage, 'cookies-message')+' ';
+    CC_Consent_Button.id="consentButton";
+    CC_Consent_Button.onclick=function(){$('#consentButton').tooltip('hide'); CC_sendConsent();};
 }
 
 function CC_prepareTooltipOnConsentButton(){
@@ -24,7 +38,7 @@ function CC_makeTooltipFirstAppearance(){
         if(CC_isMobile()){
             CC_makeTooltipAppearOnlyOnce(3000);
         } else {
-            CC_showTooltip(2000);
+            CC_showTooltip(1500);
         }
     }
 }
@@ -64,19 +78,6 @@ function CC_sendConsent() {
     });
 }
 
-function CC_initElements(){
-    CC_Row.classList.add("row", "justify-content-center", "align-items-center",
-        "text-center", "p-0", "m-0", "CC_Row");
-    CC_Row.id='CC_Row';
-
-    CC_Button_Div.classList.add("CC_Text", "col-12");
-
-    CC_Consent_Button.classList.add("w-100", "btn", "text-white", "CC_Consent_Button");
-    CC_Consent_Button.textContent=CC_translation(defaultLanguage, 'cookies-message');
-    CC_Consent_Button.id="consentButton";
-    CC_Consent_Button.onclick=function(){$('#consentButton').tooltip('hide'); CC_sendConsent();};
-}
-
 function CC_translation(language, message){
     switch(language) {
         case 'fr':
@@ -87,6 +88,12 @@ function CC_translation(language, message){
                     return "Ce site utilise des cookies pour améliorer votre confort. En poursuivant votre navigation vous acceptez leur utilisation.";
                 case 'button-tooltip':
                     return "Cliquez pour accepter les cookies.";
+                case 'more-link':
+                    return "En savoir plus...";
+                case 'modal-cookies-title':
+                    return "Utilisation des cookies";
+                case  'cookies-usage':
+                    return "Ce site utilise les cookies pour la sécurité et le confort de navigation uniquement.";
                 case 'ajax':
                     return "Problème lors de la requête au serveur";
                 default:
@@ -102,6 +109,12 @@ function CC_translation(language, message){
                     return "This site uses cookies for your navigation comfort. By continuing on this site, you accept their usage.";
                 case 'button-tooltip':
                     return "Click to accept cookies.";
+                case 'more-link':
+                    return "More about it...";
+                case 'modal-cookies-title':
+                    return "Cookies usage";
+                case 'cookies-usage':
+                    return "This site only uses cookies for security and navigation comfort.";
                 case 'ajax':
                     return "Problem with the request to the server";
                 default:
@@ -116,6 +129,40 @@ function CC_translation(language, message){
 function getCSRFToken(){
     return $('meta[name="csrf-token"]').attr('content');
 }
+
+function createLinkAndModalBoxForMore(){
+    let modal =
+        "<div class=\"modal fade\" id=\"cookiesModal\" tabindex=\"-1\" aria-labelledby=\"cookiesUsageLabel\" aria-hidden=\"true\">\n" +
+        "  <div class=\"modal-dialog modal-dialog-centered\">\n" +
+        "    <div class=\"modal-content\">\n" +
+        "      <div class=\"modal-header dark-rock\">\n" +
+        "        <h5 class=\"modal-title white-text\" id=\"cookiesUsageLabel\">"+CC_translation(defaultLanguage, "modal-cookies-title")+"</h5>\n" +
+        "        <button type=\"button\" class=\"close white-button CC_No_Focus_Button\" data-dismiss=\"modal\" aria-label=\"Close\">\n" +
+        "          <span aria-hidden=\"true\">&times;</span>\n" +
+        "        </button>\n" +
+        "      </div>\n" +
+        "      <div class=\"modal-footer\">" +
+                 CC_translation(defaultLanguage, "cookies-usage") +
+        "      </div>\n" +
+        "    </div>\n" +
+        "  </div>\n" +
+        "</div>";
+        modal = $(modal);
+        modal.appendTo("body");
+
+    let link =
+        "<a type=\"button\" class=\"btn px-0 m-0 CC_More_Link\" data-toggle=\"modal\" data-target=\"#cookiesModal\">\n" +
+        "["+CC_translation(defaultLanguage, "more-link") + "]\n" +
+        "</a>\n";
+    link = $(link);
+    link.on('click',
+        function(event){
+            modal.modal({keyboard:true});
+            event.stopPropagation();
+        });
+    link.appendTo(CC_Consent_Button);
+}
+
 
 $(document).ready(function() {
     CC_prepareTooltipOnConsentButton();

@@ -15,7 +15,7 @@ $center-color: rgba(0,100,0,0.9);
     color: white;
 }
 
-.CC_Consent_Button:focus{
+.CC_No_Focus_Button:focus{
     outline: none;
     box-shadow: none;
 }
@@ -27,4 +27,50 @@ $center-color: rgba(0,100,0,0.9);
 .bs-tooltip-auto[x-placement^=top] .arrow::before,
 .bs-tooltip-top .arrow::before {
     border-top-color: $center-color;
+}
+
+.CC_More_Link, .CC_More_Link:not([href]) {
+    $link-color: rgb(200,200,200);
+    $link-color-darker: rgb(160,160,160);
+    color: $link-color;
+    font-size: 0.8em;
+    font-style: italic;
+
+    &:hover, &:focus, &:active {
+        color: $link-color;
+        text-decoration: none;
+    }
+
+    &:visited {
+        color: $link-color-darker;
+    }
+
+}
+
+.white-button {
+    &, &:hover, &:focus {
+        color:white;
+    }
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+%modal-border {
+    border: black 1.2px solid;
+}
+
+.modal-footer {
+    @extend %modal-border;
+    background-color: rgba(220,220,220,0.9);
+    border-top: none;
+    text-align: justify;
+    display: block;
+}
+
+.modal-header{
+    @extend %modal-border;
+    border-bottom: none;
 }

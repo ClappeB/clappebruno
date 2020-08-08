@@ -12,7 +12,7 @@
   color: white;
 }
 
-.CC_Consent_Button:focus {
+.CC_No_Focus_Button:focus {
   outline: none;
   box-shadow: none;
 }
@@ -24,6 +24,43 @@
 .bs-tooltip-auto[x-placement^=top] .arrow::before,
 .bs-tooltip-top .arrow::before {
   border-top-color: rgba(0, 100, 0, 0.9);
+}
+
+.CC_More_Link, .CC_More_Link:not([href]) {
+  color: #c8c8c8;
+  font-size: 0.8em;
+  font-style: italic;
+}
+.CC_More_Link:hover, .CC_More_Link:focus, .CC_More_Link:active, .CC_More_Link:not([href]):hover, .CC_More_Link:not([href]):focus, .CC_More_Link:not([href]):active {
+  color: #c8c8c8;
+  text-decoration: none;
+}
+.CC_More_Link:visited, .CC_More_Link:not([href]):visited {
+  color: #a0a0a0;
+}
+
+.white-button, .white-button:hover, .white-button:focus {
+  color: white;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.modal-header, .modal-footer {
+  border: black 1.2px solid;
+}
+
+.modal-footer {
+  background-color: rgba(220, 220, 220, 0.9);
+  border-top: none;
+  text-align: justify;
+  display: block;
+}
+
+.modal-header {
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=cookies_consent.css.map */
