@@ -3,11 +3,7 @@
     <div class="container-fluid">
         <div class="row text-center d-flex justify-content-center pt-2">
             <div class="col-md-12 mb-3 p-0 pt-2 m-0">
-                @debug
-                <a href="{{route('test', ['clean', 'redirect'])}}">
-                @else
                 <a href="{{@RouteWithLocale('welcome')}}">
-                @enddebug
                     <img class="footer-logo" src="{{asset('assets/img/logo.png')}}" alt="{{__('general.logo_alt')}}">
                 </a>
             </div>
