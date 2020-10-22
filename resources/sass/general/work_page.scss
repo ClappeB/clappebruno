@@ -1,0 +1,325 @@
+$hr-angle: 70deg;
+
+.section {
+    position: relative;
+}
+
+.section-border {
+
+    --border-width: 4px;
+    $border:rgb(0,0,0) solid var(--border-width);
+    --angle-radius: 1em;
+    $thin-border-decay: 3px;
+    $thin-border-width: 2px;
+
+    position: absolute;
+    width: 15%;
+    height: 20%;
+    border-radius: 0.3em;
+    pointer-events: none;
+
+    &:nth-child(6n+1){
+        top: 0;
+        left: 0;
+        border: $border;
+        border-bottom: none;
+        border-right: none;
+        border-top-left-radius: var(--angle-radius);
+    }
+
+    &:nth-child(6n+2){
+        top:0;
+        right: 0;
+        border: $border;
+        border-bottom: none;
+        border-left: none;
+        border-top-right-radius: var(--angle-radius);
+    }
+
+    &:nth-child(6n+3){
+        bottom: 0;
+        right: 0;
+        border: $border;
+        border-top: none;
+        border-left: none;
+        border-bottom-right-radius: var(--angle-radius);
+    }
+
+    &:nth-child(6n+4){
+        bottom:0;
+        left: 0;
+        border: $border;
+        border-top: none;
+        border-right: none;
+        border-bottom-left-radius: var(--angle-radius);
+    }
+
+    &:nth-child(6n+5){
+        width: 70%;
+        height: 70%;
+        top: $thin-border-decay;
+        left: $thin-border-decay;
+        border: $border;
+        border-bottom: none;
+        border-right: none;
+        border-radius: 1px;
+        border-top-left-radius: calc(var(--angle-radius) - var(--border-width));
+        border-width: $thin-border-width;
+    }
+
+    &:nth-child(6n+6){
+        width: 60%;
+        height: 60%;
+        bottom: $thin-border-decay;
+        right: $thin-border-decay;
+        border: $border;
+        border-top: none;
+        border-left: none;
+        border-radius: 1px;
+        border-bottom-right-radius: calc(var(--angle-radius) - var(--border-width));
+        border-width: $thin-border-width;
+    }
+
+}
+
+hr {
+    width: 6.2em;
+    position: relative;
+    display: flex;
+    height: 3px;
+    background-color: black;
+    justify-content: center;
+    clip-path: polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    @media (max-width: 992px) {
+        width: 5.5em;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+        height: 2px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .hr-to-left{transform: rotateZ(- $hr-angle);}
+    .hr-to-right{transform: rotateZ($hr-angle);}
+}
+
+
+.wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 2%;
+
+    @media(max-width: 767px) {
+        grid-template-columns: repeat(1,1fr);
+        grid-column-gap: 0%;
+
+        &:not([download]){
+            grid-row-gap: 2em;
+        }
+        &[download] {
+            grid-row-gap: 0.5em;
+        }
+
+    }
+
+}
+
+.grid-img {
+    grid-row: 1;
+    @media(max-width: 767px) {
+        grid-column: 1;
+    }
+}
+
+.grid-text {
+    position: relative;
+    grid-row: 1;
+    @media(max-width: 767px) {
+        grid-row: 2;
+
+        &:not([download]) {
+            &:before {
+                $scss-square-size: 24px;
+                --demi-square-size: 12px;
+
+                content: '';
+                position: absolute;
+                width: $scss-square-size;
+                height: $scss-square-size;
+                color: white;
+                background-color: black;
+                top: - $scss-square-size*1.4;
+                left: calc(50% - var(--demi-square-size));
+                transform: rotateZ(45deg);
+                clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+            }
+        }
+    }
+}
+
+.grid-text-right {
+    @media(min-width: 768px) {
+        grid-column: 2;
+    }
+}
+
+.grid-text-left {
+    @media(min-width: 768px) {
+        grid-column: 1;
+    }
+}
+
+.title {
+    font-size: calc(2.5em + 0.5vw);
+    font-weight: 600;
+
+    @media(max-width: 991px) {
+        font-size: calc(1.6em + 1vw);
+    }
+}
+
+.head-title {
+    $background-color: rgba(50,50,50,0.2);
+    $edge-color: rgba(0,0,0,1);
+
+    font-size: calc(1.5em + 2.5vw);
+    line-height: 1.5em;
+    font-weight: 600;
+    border-radius: 0.2em;
+    background-color: $background-color;
+    border: black solid 1px;
+    padding: 1.55rem!important;
+}
+
+.sliding-work-title {
+    font-size: calc(2em + 4vw);
+    line-height: 1.4em;
+    width: 100%;
+}
+
+.description {
+    font-size: 1.8em;
+    line-height: 1.4em;
+    color: rgb(40,40,40);
+    font-style: italic;
+
+    @media(max-width: 991px) {
+        font-size: 1.5em;
+    }
+
+}
+
+%work-div-core {
+    height: calc(100vh - 3.725em);
+    width: 100%;
+}
+
+.work-div {
+    @extend %work-div-core;
+    position: absolute;
+    top: 3.725em;
+    left: 0;
+    background-color: rgba(50,50,50,0.4);
+    color: white;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10vh;
+    z-index: 1;
+
+    &:after{
+        content: '';
+        position: absolute;
+        width: calc(200px + 10vw);
+        height: calc(50px + 10*0.1vw);
+        background-color: white;
+        bottom: 10px;
+        left: calc(50% - (200px + 10vw)/2);
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 0%);
+    }
+
+}
+
+.work-div-mobile {
+    height: calc(100vh - 3.725em);
+    width: 100%;
+    position: absolute;
+    top: 3.725em;
+    left: 0;
+    background-color: rgba(50,50,50,0.4);
+    color: white;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10vh;
+    z-index: 1;
+
+    &:after{
+        content: '';
+        position: absolute;
+        width: calc(200px + 10vw);
+        height: calc(50px + 1vh);
+        background-color: white;
+        bottom: 80px;
+        left: calc(50% - (200px + 10vw)/2);
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%, 0% 0%);
+    }
+
+}
+
+.work-div-placeholder {
+    @extend %work-div-core;
+    margin-bottom: 5vh;
+}
+
+.sliding-work {
+    overflow: hidden;
+    transform-origin: top;
+
+    & .container, &::after {
+        transition-property: transform;
+        transition-duration: 0.9s;
+    }
+
+}
+
+.get-in {
+    transition: height 0.5s ease-out, margin-bottom 0.5s linear;
+
+    & .container, &::after {
+        transform: translateY(0);
+    }
+
+}
+
+.get-out {
+    transition: height 0.45s ease-in-out 0.05s, margin-bottom 0.45s linear 0.05s;
+    height: 0px;
+    margin-bottom: 0px;
+
+    & .container, &::after {
+        transform: translateY(-100vh);
+    }
+}
+
+.download {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    color: black;
+
+    &:hover, &:focus {
+        color: rgb(50,150,255);
+    }
+
+    & svg {
+        height: calc(100px + 5vh);
+        width: calc(100px + 2.5vw);
+    }
+}

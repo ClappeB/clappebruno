@@ -20,4 +20,6 @@ return [
     'logo_alt' => "Logo de Clappe Bruno",
 
     'date_format' => "d F Y",
+
+    'download' => "telecharger",
 ];

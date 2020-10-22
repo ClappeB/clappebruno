@@ -33,7 +33,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark shadow-sm dark-rock">
         <div class="col-10 col-sm-4 col-md-3 text-sm-left text-md-right m-0 px-0 px-sm-1 mr-md-3">
-            <a class="navbar-brand" href="@RouteWithLocale('welcome')">
+            <a class="navbar-brand" href="{{@RouteWithLocale('welcome')}}">
                 <img class="navbar-icon" src="{{asset('assets/img/logo.png')}}" alt="{{__('general.logo_alt')}}"/>
                 <span class="p-0 m-0 no-gutters">{{__('general.site_name')}}</span>
             </a>

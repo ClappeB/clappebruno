@@ -18,6 +18,7 @@ use \App\Http\Helpers\RoutesHelper;
 if(config('app.debug')) {
     Route::namespace('Test')->group(function () {
         Route::any('/test', 'TestController@test')->name('test');
+        Route::get('/out', 'TestController@out')->name('out');
     });
 }
 
@@ -28,14 +29,21 @@ foreach (config('app.supported_locales') as $locale) {
     Route::namespace('General')->group(function () use ($locale) {
         Route::get('/', 'GeneralController@welcome')->name('welcome');
         Route::put(__('routes.language') . '/{locale}', 'GeneralController@language')->where('locale', '^[a-zA-Z]{2}$')->name(RoutesHelper::addLocaleToRoute('language', $locale));
-        Route::get(__('routes.work'), 'GeneralController@work')->name(RoutesHelper::addLocaleToRoute('work', $locale));
         Route::get(__('routes.contact'), 'GeneralController@contact')->name('contact');
         Route::get(__('routes.legals'), 'GeneralController@legals')->name(RoutesHelper::addLocaleToRoute('legals', $locale));
         Route::post('cookies', 'GeneralController@cookies')->name('cookies');
 
+        Route::get(__('routes.work'), 'GeneralController@work')->name(RoutesHelper::addLocaleToRoute('work', $locale));
+        Route::prefix(__('routes.work'))->group(function() use ($locale) {
+            Route::prefix('{slug}')->group(function() use ($locale){
+                Route::get('/', 'GeneralController@work_page')->name(RoutesHelper::addLocaleToRoute('work_page', $locale));
+                Route::get(__('general.download'), 'GeneralController@work_download')->name(RoutesHelper::addLocaleToRoute('work_download', $locale));
+            });
+        });
+
         Route::get(__('routes.resume'), 'GeneralController@resume')->name(RoutesHelper::addLocaleToRoute('resume', $locale));
-        Route::prefix(__('routes.resume'))->group(function () {
-            Route::get(__('routes.resume_download'), 'GeneralController@resumeDownload')->name('resume_download');
+        Route::prefix(__('routes.resume'))->group(function () use ($locale) {
+            Route::get(__('general.download'), 'GeneralController@resumeDownload')->name(RoutesHelper::addLocaleToRoute('resume_download', $locale));
         });
 
     });

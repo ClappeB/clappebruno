@@ -4,6 +4,7 @@ namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\VisitorHelper;
+use App\Http\Helpers\WorkHelper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,12 @@ class GeneralController extends Controller
         if(count($route_exploded)==1){
             return (request()->ajax()) ? back()->getTargetUrl() : back();
         } else {
+            if($route_exploded[0]=="work_page"){
+                $newRoute = $route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.App::getLocale();
+                $previous_url_exploded = explode('/', back()->getTargetUrl());
+                return (request()->ajax()) ? \route($newRoute, ['slug'=>WorkHelper::retrieve_work_by_slug($previous_url_exploded[4])['slug']])
+                    : redirect(\route($newRoute, ['slug'=>WorkHelper::retrieve_work_by_slug($previous_url_exploded[4])['slug']]));
+            }
             return (request()->ajax()) ? \route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale)
                 : redirect(\route($route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.$newLocale));
         }
@@ -52,6 +59,22 @@ class GeneralController extends Controller
 
     public function legals() {
         return view('general.legals');
+    }
+
+    public function work_page($slug){
+        $work = WorkHelper::retrieve_work_by_slug($slug);
+        return view('general.work_page', compact("work"));
+    }
+
+    public function work_download(){
+        $key = request()['work_name'];
+        $works = __('work.work_pages');
+        if(!key_exists($key, $works) || !key_exists('download', $works[$key])){return back();}
+        $work = $works[$key];
+        $file_path = public_path('resources/work/'.$work['download']['link']);
+        if(!file_exists($file_path)){return back();}
+        $name = str_replace('-', '_', $work['slug']).".zip";
+        return response()->download($file_path, $name);
     }
 
     public function cookies(){

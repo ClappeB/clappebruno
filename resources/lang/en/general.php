@@ -20,4 +20,6 @@ return [
     'logo_alt' => "Clappe Bruno's logo",
 
     'date_format' => "F d, Y",
+
+    'download' => 'download',
 ];

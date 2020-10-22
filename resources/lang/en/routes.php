@@ -14,7 +14,6 @@ return [
     'work' => "my-work",
     'contact' => "contact",
     'resume' => "resume",
-    'resume_download' => "download",
     'legals' => "legals",
     'language' => "language"
 

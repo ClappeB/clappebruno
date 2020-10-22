@@ -14,7 +14,6 @@ return [
     'work' => "realisations",
     'contact' => "contact",
     'resume' => "cv",
-    'resume_download' => "telecharger",
     'legals' => "mentions-legales",
     'language' => "langue"
 

@@ -6,7 +6,7 @@
     <body class="@Desktop{{__('body-desktop')}}@else{{__('body-mobile')}}@endDesktop @yield('background', "")">
         <div id="app">
             @include('layouts.navbar')
-            <main class="{{'py-4 full-height container-fluid'}} @yield('main-classes', "")">
+            <main class="{{'py-4 h-100 container-fluid'}} @yield('main-classes', "")">
                 @yield('content')
             </main>
             @include('layouts.footer')

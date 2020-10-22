@@ -1,0 +1,163 @@
+$transition-time: 0.3s;
+$overlayed-card: 0.4;
+$img-overlay-color-secondary: rgb(210,210,210);
+$scrollbar-arrow-color: rgb(150,150,150);
+
+.work {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    background-image: linear-gradient(to right, rgba(200,200,200,0.15) 0%, black 30%, black 70%, rgba(200,200,200,0.15) 100%);
+
+    & img {
+        opacity: 1;
+        width: auto;
+        height: auto;
+        transition: opacity $transition-time ease-in-out;
+    }
+
+    & h5 {
+        padding: 1px 0px;
+    }
+
+    @media(max-width: 768px){
+        & img {
+            opacity: $overlayed-card;
+        }
+
+        .card-title, .card-text{
+            width: 45%;
+        }
+
+    }
+
+    & .card-separator {
+        content: '';
+        border-right: $img-overlay-color-secondary 1px solid;
+        margin: 0 0.4em 0 0.4em;
+        height: min(80%, 8em);
+        border-radius: 50px;
+    }
+
+    %card-element {
+
+        overflow: auto;
+        max-height: 80%;
+
+        // === HIDE SCROLLBAR ===
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+/*
+        &::-webkit-scrollbar {
+            display: none;
+        }*/
+        // === END HIDE SCROLLBAR ===
+        @media(min-width: 769px) {
+
+            // Chrome and Safari scrollbar
+            &::-webkit-scrollbar {
+                width: 0.6em;
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-button:single-button {
+                display: block;
+                border-style: solid;
+
+                &:vertical:decrement{
+                    border-width: 0 .3em .3em .3em;
+                    border-color: transparent transparent $scrollbar-arrow-color transparent;
+
+                    &:hover{border-bottom-color: white;}
+                }
+
+                &:vertical:increment{
+                    border-width: .3em .3em 0 .3em;
+                    border-color: $scrollbar-arrow-color transparent transparent transparent;
+
+                    &:hover{border-top-color: white;}
+                }
+
+            }
+
+            // Mozilla scrollbar
+            scrollbar-width: thin;
+            scrollbar-color: rgba(50, 50, 50, 0.3) transparent;
+        }
+
+    }
+
+    & .card-title {
+        @extend %card-element;
+        min-width: 30%;
+        max-width: 50%;
+        padding: 1px 0px;
+    }
+
+    & .card-text {
+        @extend %card-element;
+        max-width: 60%;
+        font-style: italic;
+        color: $img-overlay-color-secondary;
+    }
+
+    & .card-img-overlay {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    @media(min-width: 769px) {
+
+        &:hover img, &:focus img {
+            opacity: $overlayed-card;
+        }
+
+        &:hover > .card-img-overlay, &:focus > .card-img-overlay {
+            top: 0;
+        }
+
+        & .card-img-overlay {
+            height: 100%;
+            width: 100%;
+            left: auto;
+            right: auto;
+            top: 100%;
+            bottom: 0;
+            transition: top $transition-time cubic-bezier(0.45, 0.05, 0.55, 0.95); //cubic-bezier(0.58, -0.48, 0.46, 0.98);
+        }
+    }
+}
+
+.masonry {
+    margin: 1.5em 0;
+    column-gap: 1.5em;
+
+    @media(min-width: 992px){
+        column-count: 3;
+    }
+
+    @media(max-width: 992px) {
+        column-count: 2;
+    }
+
+    @media(max-width: 768px){
+        column-count: 1;
+    }
+
+    a {
+        display: inline-block;
+    }
+
+}
+
+@keyframes arrow_flashing {
+    0%, 30% {
+        border-bottom-color: white;
+    }
+    70%, 100% {
+        border-bottom-color: $scrollbar-arrow-color;
+    }
+}
