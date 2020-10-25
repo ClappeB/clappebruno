@@ -1,0 +1,225 @@
+$blue-color: rgb(0,50,100);
+
+main {
+    @media(min-width: 992px){
+        padding: 0!important;
+    }
+    padding: calc(2em + 2vw) 0 0 0;
+}
+
+.col{
+    position: relative;
+}
+
+.wrapper{
+    display: grid;
+    width: 100%;
+    min-height: calc(100vh - 3.725em - 200px);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: max(40%, 525px) 1fr;
+
+    @media(max-width: 991px) {
+        grid-template-rows: initial;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 20px;
+    }
+
+}
+
+.photo-col {
+    @media(min-width: 992px){
+        overflow: hidden;
+        min-width: 550px;
+        min-height: 700px;
+    }
+}
+
+.photo-section {
+    $padding-photo-corner: 70px;
+
+    @media(min-width: 992px) {
+        overflow: hidden;
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: right;
+        padding-left: 100px;
+        padding-right: $padding-photo-corner;
+        padding-top: $padding-photo-corner;
+        top: -20px;
+        right: 20%;
+        height: 150%;
+        width: 100%;
+        transform: rotateZ(8deg);
+        border-radius: 50px;
+        background-color: $blue-color;
+    }
+
+    @media(max-width: 991px) {
+        & > div {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+}
+
+.photo {
+
+    position: relative;
+    display: block;
+    & > img {
+        border-radius: 20px;
+        border: solid 2px black;
+    }
+}
+
+.point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+$points-x-decay: 22px;
+$points-y-decay: 10px;
+
+.top-right-corner-point {
+    top:$points-y-decay;
+    right: $points-x-decay;
+    z-index: 1;
+}
+
+.bottom-left-corner-point {
+    bottom: $points-y-decay + 20px;
+    left: $points-x-decay - 8px;
+    z-index: 1;
+}
+
+.name {
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 3em;
+    font-weight: 600;
+    color: white;
+    @media(max-width: 991px){display: none}
+}
+
+.job {
+    font-size: 0.9em;
+    letter-spacing: 0.42em;
+    line-height: 1.4em;
+    color: rgb(210,210,210);
+    margin: 0;
+    padding: 5px;
+    @media(max-width: 991px){display: none}
+}
+
+.photo-text {
+    @media(max-width: 991px){display: none}
+    position: absolute;
+    bottom: 40%;
+    right: calc(-320px + 19%);
+    width: 600px;
+    font-size: 1em;
+    text-decoration: underline;
+    font-weight: 600;
+    transform: rotateZ(calc(-90deg + 8deg));
+    text-align: right;
+
+    & p {
+        margin: 0;
+        padding: 0.1em;
+    }
+}
+
+.text-col {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 5% 45%;
+
+    @media(max-width: 991px) {
+        grid-template-rows: initial;
+    }
+
+}
+
+.text-title-section {
+    @media(min-width: 992px){
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.text-site-title {
+    width: 100%;
+    text-align: center;
+    font-size: calc(5em + 4vw);
+    font-weight: 800;
+    padding-left: 7%;
+    padding-right: 7%;
+    line-height: 0.8em;
+    color: $blue-color;
+
+    &::first-line{
+        color: black;
+    }
+
+    @media(max-width: 991px){
+        font-size: calc(6em + 3vw);
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+
+    @media(max-width: 767px){
+        padding: 0;
+        margin-bottom: 0.1em;
+    }
+
+    @media(max-width: 575px){
+        font-size: calc(2em + 15vw);
+    }
+
+}
+
+.text-personality-space {
+    display: flex;
+    justify-content: center;
+}
+
+.text-personality {
+    width: 480px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.personnality-span {
+    display: inline-block;
+}
+
+.personnality-word {
+    font-size: 1.1em;
+    font-style: italic;
+    margin: 0;
+
+    @media(max-width: 767px){font-size: calc(0.65em + 1vw);}
+}
+
+.text-site-description-space {
+    display: flex;
+    justify-content: center;
+}
+
+.text-site-description {
+    --margin: calc(1em + 1vw);
+
+    margin-top: calc(1em + 1vw);
+    width: max(65%, 450px);
+    line-height: 1.8em;
+    font-size: calc(1.4em + 0.4vw);
+    color: rgb(50,50,50);
+    text-align: center;
+    @media(max-width: 991px) {
+        margin-bottom: calc(var(--margin) * 3);
+        font-size: calc(1.2em + 1vw);
+    }
+}

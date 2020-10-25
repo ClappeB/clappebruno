@@ -22,21 +22,18 @@ html {
 main {
   min-height: 100%;
   height: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 nav {
   font-family: "walter-turncoat";
+  min-height: 3.725em;
+  z-index: 10;
 }
 
 .body-mobile, .body-desktop {
   font-family: "Segoe UI", "sans-serif";
-}
-
-.body-desktop {
-  margin-bottom: 220px;
-}
-
-.body-mobile {
   margin-bottom: 200px;
 }
 
@@ -44,6 +41,8 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  min-height: 200px;
+  z-index: 10;
 }
 
 /*# sourceMappingURL=master.css.map */

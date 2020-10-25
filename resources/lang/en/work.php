@@ -107,7 +107,7 @@ return [
                 'gallery' => ['img' => WorkHelper::format_path_for_work_images($student_office_website['name'],"gallery.jpg"), 'alt' => "Activity's photos' presentation's page, when logged in as student office's member.",
                     'text' => "A gallery for each activity permits activity's members to consult the pictures took during the event."],
                 'comments' => ['img' => WorkHelper::format_path_for_work_images($student_office_website['name'],"comments.jpg"), 'alt' => "Comments page for each activity's photo, while logged in as student office's member.",
-                    'text' => "A comments section make people able to discuss about activity's photos. Each message can be switched to invisible or deleted in case it doesn't respect the rules."]
+                    'text' => "A comments section make people able to discuss about activities' photos. Each message can be switched to invisible or deleted in case it doesn't respect the rules."]
             ],
         ],
         //Company Network

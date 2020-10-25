@@ -19,7 +19,7 @@
                                 @csrf
                                 @method('PUT')
                                 <button class="flag-button col-10" type="submit">
-                                    <a class="dropdown-item px-0 py-1  @RightLocale($language){{__('active')}}@endRightLocale"><img src="{{asset('assets/icons/flags/'.$language.'_flag.png')}}" class="flag mr-2">{{$language}}</a>
+                                    <a class="dropdown-item px-0 py-1  @RightLocale($language){{__('active')}}@endRightLocale"><img loading="lazy" src="{{asset('assets/icons/flags/'.$language.'_flag.png')}}" class="flag mr-2">{{$language}}</a>
                                 </button>
                             </form>
                         </div>

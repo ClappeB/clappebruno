@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <div class="row m-0 p-0 mt-2 text-center align-items-center h-100 resume">
+    <div class="row m-0 p-0 mt-2 text-center align-items-center h-100">
         <div class="container">
             <div class="work-div-placeholder sliding-work"></div>
             <div class="@Desktop{{"work-div"}}@else{{"work-div-mobile"}}@endDesktop sliding-work">
@@ -39,7 +39,7 @@
                         <div class="col justify-content-center d-flex section p-sm-4 p-3">
                             @for($i = 0; $i<6; $i++)<span class="section-border"></span>@endfor
                             <img src="{{asset('resources/work/'.$image['img'])}}" alt="{{$image['alt']}}"
-                                 class="img-fluid d-block">
+                                 class="img-fluid d-block" loading="lazy">
                         </div>
                     </div>
                 </div>
