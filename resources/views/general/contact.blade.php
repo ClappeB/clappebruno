@@ -2,18 +2,27 @@
 
 @section('page_description'){{__('page_description.contact_page')}}@endsection
 
-@section('headAddings')<link href="{{asset('assets/css/general/contact.css')}}" rel="stylesheet">@endsection
+@section('headAddings')
+    <link href="{{asset('assets/css/general/contact.css')}}" rel="stylesheet">
+    @flash('mail_sent')
+        <link href="{{asset('assets/css/layouts/flash.css')}}" rel="stylesheet">
+    @endflash
+@endsection
 
 @section('background'){{'planks'}}@endsection
 
 @section('content')
-    <div class="container">
+
+    @flash('mail_sent')
+        @include('general.flash')
+    @endflash
+    <div class="container align-items-center">
         <div class="row justify-content-center px-lg-3">
                 <div class="card col-12 p-0">
                     <div class="card-header text-center"><h3>{{ __('contact.page_name') }}</h3></div>
                     <div class="card-body">
 
-                        <form method="POST" action="{{route('contact')}}">
+                        <form method="POST" action="{{route('mail_contact')}}">
                             @csrf
                             <div class="form-group row justify-content-center">
                                 <div class="col-12 col-md-10 mx-1 mx-md-0">
@@ -21,15 +30,14 @@
                                     <div class="col-12 animated-area p-0 m-0">
                                         <span class="animation-adding"></span>
                                         <span class="animation-adding"></span>
-                                        <input id="email" type="email" class="form-control decorated-label-area @error('mail') is-invalid @enderror"
-                                               name="email" value="{{ old('email') }}" autofocus>
-
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
+                                        <input id="email" type="text" class="form-control decorated-label-area @error('email') is-invalid @enderror"
+                                               name="email" value="{{ old('email') }}" placeholder="{{__('contact.placeholders.email')}}" autofocus>
+                                    </div>
+                                    @error('email')
+                                    <span class="invalid-feedback d-inline-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
@@ -39,14 +47,13 @@
                                         <span class="animation-adding"></span>
                                         <span class="animation-adding"></span>
                                         <input id="object" type="text" class="form-control decorated-label-area @error('object') is-invalid @enderror"
-                                               name="object" value="{{ old('object') }}" autofocus>
-
-                                        @error('object')
-                                        <span class="invalid-feedback" role="alert">
+                                               name="object" value="{{ old('object') }}" placeholder="{{__('contact.placeholders.object')}}" autofocus>
+                                    </div>
+                                    @error('object')
+                                    <span class="invalid-feedback d-inline-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
@@ -55,8 +62,14 @@
                                     <div class="col-12 animated-area p-0 m-0">
                                         <span class="animation-adding"></span>
                                         <span class="animation-adding"></span>
-                                        <textarea id="message" name="message" class="form-control decorated-label-area" rows="3"></textarea>
+                                        <textarea id="message" name="message" class="form-control decorated-label-area @error('message') is-invalid @enderror"
+                                                  rows="3" placeholder="{{__('contact.placeholders.message')}}" maxlength="3000">{{ old('message') }}</textarea>
                                     </div>
+                                    @error('message')
+                                    <span class="invalid-feedback d-inline-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center mb-0">
@@ -75,3 +88,5 @@
         </div>
     </div>
 @endsection
+
+@section('scriptsAddings') @stack('flashScripts') @endsection

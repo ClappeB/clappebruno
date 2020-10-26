@@ -10,7 +10,6 @@ $scrollbar-arrow-color: rgb(150,150,150);
     position: relative;
     overflow: hidden;
     background-color: black;
-    background-image: linear-gradient(to right, rgba(200,200,200,0.15) 0%, black 30%, black 70%, rgba(200,200,200,0.15) 100%);
 
     & img {
         opacity: 1;
@@ -21,17 +20,6 @@ $scrollbar-arrow-color: rgb(150,150,150);
 
     & h5 {
         padding: 1px 0px;
-    }
-
-    @media(max-width: 768px){
-        & img {
-            opacity: $overlayed-card;
-        }
-
-        .card-title, .card-text{
-            width: 45%;
-        }
-
     }
 
     & .card-separator {
@@ -50,10 +38,7 @@ $scrollbar-arrow-color: rgb(150,150,150);
         // === HIDE SCROLLBAR ===
         -ms-overflow-style: none;
         scrollbar-width: none;
-/*
-        &::-webkit-scrollbar {
-            display: none;
-        }*/
+
         // === END HIDE SCROLLBAR ===
         @media(min-width: 769px) {
 
@@ -107,10 +92,28 @@ $scrollbar-arrow-color: rgb(150,150,150);
     & .card-img-overlay {
         display: flex;
         justify-content: space-around;
+        background-image: linear-gradient(to right, rgba(200,200,200,0.10) 0%, transparent 30%, transparent 70%, rgba(200,200,200,0.10) 100%);
     }
 
-    @media(min-width: 769px) {
+}
 
+%card-img-overlay-core {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    transition: top $transition-time cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.body-desktop {
+
+    & .card-img-overlay {
+        @extend %card-img-overlay-core;
+        top: 100%;
+    }
+
+    .work {
         &:hover img, &:focus img {
             opacity: $overlayed-card;
         }
@@ -118,28 +121,31 @@ $scrollbar-arrow-color: rgb(150,150,150);
         &:hover > .card-img-overlay, &:focus > .card-img-overlay {
             top: 0;
         }
-
-        & .card-img-overlay {
-            height: 100%;
-            width: 100%;
-            left: auto;
-            right: auto;
-            top: 100%;
-            bottom: 0;
-            transition: top $transition-time cubic-bezier(0.45, 0.05, 0.55, 0.95); //cubic-bezier(0.58, -0.48, 0.46, 0.98);
-        }
     }
+
+}
+
+.body-mobile {
+    & .card-img-overlay {
+        @extend %card-img-overlay-core;
+    }
+
+    & img {
+        opacity: $overlayed-card;
+    }
+
+    .card-title, .card-text{
+        width: 45%;
+    }
+
 }
 
 .masonry {
     margin: 1.5em 0;
-    column-gap: 1.5em;
+    column-gap: 0;
+    row-gap: 0;
 
-    @media(min-width: 992px){
-        column-count: 3;
-    }
-
-    @media(max-width: 992px) {
+    @media(min-width: 992px) {
         column-count: 2;
     }
 
@@ -147,17 +153,9 @@ $scrollbar-arrow-color: rgb(150,150,150);
         column-count: 1;
     }
 
-    a {
-        display: inline-block;
+    button {
+        padding: 2px;
+        margin: 0.5em;
     }
 
-}
-
-@keyframes arrow_flashing {
-    0%, 30% {
-        border-bottom-color: white;
-    }
-    70%, 100% {
-        border-bottom-color: $scrollbar-arrow-color;
-    }
 }

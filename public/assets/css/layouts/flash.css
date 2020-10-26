@@ -1,0 +1,20 @@
+.modal-content {
+  background-color: transparent;
+  border: none;
+}
+
+.modal-header {
+  background-color: black;
+  color: white;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.modal-body {
+  background-color: #003264;
+  color: white;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+/*# sourceMappingURL=flash.css.map */

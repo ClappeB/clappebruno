@@ -117,7 +117,7 @@ return [
             'description' => "La création d'un réseau d'une entreprise avec gestion de VLAN et autorisations par VLAN, pare-feu, routage et commutation.",
             'images' => [
                 'overview' => ['img' => WorkHelper::format_path_for_work_images($company_network['name'],"site_principal.jpg"), 'alt' => "Le réseau du site principal, dans son concept.",
-                    'text' => "Le réseau d'une entreprise multi-sites."],
+                    'text' => "Le réseau d'une entreprise multi-sites, simulé via Cisco Packet Tracer."],
                 'sp_bp' => ['img' => WorkHelper::format_path_for_work_images($company_network['name'],"sp_bp.jpg"), 'alt' => "Le réseau du bâtiment principal du site principal.",
                     'text' => "Un bâtiment principal présentant plusieurs étages, plusieurs services et les VLANs affiliés."],
                 'sp_bo' => ['img' => WorkHelper::format_path_for_work_images($company_network['name'],"sp_bo.jpg"), 'alt' => "Le réseau du bâtiment Ouest du site principal.",

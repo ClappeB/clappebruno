@@ -2,7 +2,7 @@ $side-color: rgba(0,200,0,0.8);
 $center-color: rgba(0,100,0,0.9);
 
 .CC_Row {
-    z-index: 5;
+    z-index: 50;
     background-image: linear-gradient(to right, $side-color 0%, $center-color 15%, $center-color 85%, $side-color 100%);
     position: fixed;
     bottom: 0;

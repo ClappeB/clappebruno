@@ -30,6 +30,7 @@ foreach (config('app.supported_locales') as $locale) {
         Route::get('/', 'GeneralController@welcome')->name('welcome');
         Route::put(__('routes.language') . '/{locale}', 'GeneralController@language')->where('locale', '^[a-zA-Z]{2}$')->name(RoutesHelper::addLocaleToRoute('language', $locale));
         Route::get(__('routes.contact'), 'GeneralController@contact')->name('contact');
+        Route::post(__('routes.contact'), 'GeneralController@mail_contact')->name('mail_contact');
         Route::get(__('routes.legals'), 'GeneralController@legals')->name(RoutesHelper::addLocaleToRoute('legals', $locale));
         Route::post('cookies', 'GeneralController@cookies')->name('cookies');
 

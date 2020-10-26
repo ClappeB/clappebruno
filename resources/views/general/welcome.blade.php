@@ -14,8 +14,8 @@
                     <div>
                         <div class="photo">
                             <img class="img-fluid" src="https://picsum.photos/350/450">
-                            <span class="point top-right-corner-point rounded-circle"><img src="{{asset("assets/img/thumbtack.png")}}"></span>
-                            <span class="point bottom-left-corner-point rounded-circle"><img src="{{asset("assets/img/thumbtack.png")}}"></span>
+                            <span class="point top-right-corner-point"><img src="{{asset("assets/img/thumbtack.png")}}"></span>
+                            <span class="point bottom-left-corner-point"><img src="{{asset("assets/img/thumbtack.png")}}"></span>
                         </div>
                         <p class="name">{{__('welcome.name')}}</p>
                         <p class="job">{{__('welcome.job')}}</p>
@@ -32,7 +32,7 @@
                 <div class="text-personality-space">
                     <div class="text-personality">
                         @foreach(__('welcome.qualities') as $quality)
-                            <span class="personnality-span"><p class="personnality-word">{{$quality}}</p></span>
+                            <span class="personality-span"><p class="personality-word">{{$quality}}</p></span>
                         @endforeach
                     </div>
                 </div>

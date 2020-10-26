@@ -16,5 +16,13 @@ return [
     'object' => "Object",
     'message' => "Message",
     'send' => "Send",
+    'flash_title' => "Mail sent",
+    'flash_text' => "Thank you for your mail, I will come back to you soon !",
+
+    'placeholders' => [
+        'email' => "example@example.com",
+        'object' => "Internship",
+        'message' => "I have this internship offer for you..."
+    ]
 
 ];

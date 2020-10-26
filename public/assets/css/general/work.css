@@ -5,7 +5,6 @@
   position: relative;
   overflow: hidden;
   background-color: black;
-  background-image: linear-gradient(to right, rgba(200, 200, 200, 0.15) 0%, black 30%, black 70%, rgba(200, 200, 200, 0.15) 100%);
 }
 .work img {
   opacity: 1;
@@ -15,14 +14,6 @@
 }
 .work h5 {
   padding: 1px 0px;
-}
-@media (max-width: 768px) {
-  .work img {
-    opacity: 0.4;
-  }
-  .work .card-title, .work .card-text {
-    width: 45%;
-  }
 }
 .work .card-separator {
   content: "";
@@ -36,10 +27,6 @@
   max-height: 80%;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  /*
-          &::-webkit-scrollbar {
-              display: none;
-          }*/
 }
 @media (min-width: 769px) {
   .work .card-text, .work .card-title {
@@ -82,35 +69,41 @@
 .work .card-img-overlay {
   display: flex;
   justify-content: space-around;
+  background-image: linear-gradient(to right, rgba(200, 200, 200, 0.1) 0%, transparent 30%, transparent 70%, rgba(200, 200, 200, 0.1) 100%);
 }
-@media (min-width: 769px) {
-  .work:hover img, .work:focus img {
-    opacity: 0.4;
-  }
-  .work:hover > .card-img-overlay, .work:focus > .card-img-overlay {
-    top: 0;
-  }
-  .work .card-img-overlay {
-    height: 100%;
-    width: 100%;
-    left: auto;
-    right: auto;
-    top: 100%;
-    bottom: 0;
-    transition: top 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  }
+
+.body-mobile .card-img-overlay, .body-desktop .card-img-overlay {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  transition: top 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.body-desktop .card-img-overlay {
+  top: 100%;
+}
+.body-desktop .work:hover img, .body-desktop .work:focus img {
+  opacity: 0.4;
+}
+.body-desktop .work:hover > .card-img-overlay, .body-desktop .work:focus > .card-img-overlay {
+  top: 0;
+}
+
+.body-mobile img {
+  opacity: 0.4;
+}
+.body-mobile .card-title, .body-mobile .card-text {
+  width: 45%;
 }
 
 .masonry {
   margin: 1.5em 0;
-  column-gap: 1.5em;
+  column-gap: 0;
+  row-gap: 0;
 }
 @media (min-width: 992px) {
-  .masonry {
-    column-count: 3;
-  }
-}
-@media (max-width: 992px) {
   .masonry {
     column-count: 2;
   }
@@ -120,17 +113,9 @@
     column-count: 1;
   }
 }
-.masonry a {
-  display: inline-block;
-}
-
-@keyframes arrow_flashing {
-  0%, 30% {
-    border-bottom-color: white;
-  }
-  70%, 100% {
-    border-bottom-color: #969696;
-  }
+.masonry button {
+  padding: 2px;
+  margin: 0.5em;
 }
 
 /*# sourceMappingURL=work.css.map */

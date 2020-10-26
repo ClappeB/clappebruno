@@ -1,5 +1,5 @@
 .CC_Row {
-  z-index: 5;
+  z-index: 50;
   background-image: linear-gradient(to right, rgba(0, 200, 0, 0.8) 0%, rgba(0, 100, 0, 0.9) 15%, rgba(0, 100, 0, 0.9) 85%, rgba(0, 200, 0, 0.8) 100%);
   position: fixed;
   bottom: 0;

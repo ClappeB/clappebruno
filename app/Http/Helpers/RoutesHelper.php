@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\App;
 class RoutesHelper
 {
     public const LOCALE_SEPARATOR = '|';
-    public const UNIVERSAL_ROUTES = ['welcome', 'contact', 'cookies'];
+    public const UNIVERSAL_ROUTES = ['welcome', 'contact', 'mail_contact', 'cookies'];
 
     public static function isUniversalRoute(String $routeName){
         return in_array($routeName,self::UNIVERSAL_ROUTES);

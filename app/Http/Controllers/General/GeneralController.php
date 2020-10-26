@@ -5,10 +5,13 @@ namespace App\Http\Controllers\General;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\VisitorHelper;
 use App\Http\Helpers\WorkHelper;
+use App\Mail\ContactMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Helpers\RoutesHelper;
+use Illuminate\Http\Request;
 
 class GeneralController extends Controller
 {
@@ -55,6 +58,16 @@ class GeneralController extends Controller
 
     public function contact() {
         return view('general.contact');
+    }
+
+    public function mail_contact(Request $request){
+        $request->validate([
+            'email' => 'required|regex:/^\w+@\w+\.\w+$/',
+            'object' => 'required|max:255',
+            'message' => 'required|max:3000'
+        ]);
+        Mail::to(config('mail.mailers.smtp.username'))->send(new ContactMail($request->all()));
+        return back()->with('mail_sent', "");
     }
 
     public function legals() {

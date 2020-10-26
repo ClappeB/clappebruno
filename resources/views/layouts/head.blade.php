@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="{{asset('assets/img/logo.png')}}">
+    <link rel="icon" href="{{asset('assets/img/logo.png')}}" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('page_description', __('page_description.default'))">
 

@@ -1,0 +1,22 @@
+@import "global_style";
+
+$corner-radius: 0.5em;
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.modal-header {
+    background-color: black;
+    color: white;
+    border-top-left-radius: $corner-radius;
+    border-top-right-radius: $corner-radius;
+}
+
+.modal-body {
+    background-color: $theme-color;
+    color: white;
+    border-bottom-left-radius: $corner-radius;
+    border-bottom-right-radius: $corner-radius;
+}

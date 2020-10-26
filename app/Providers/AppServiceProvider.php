@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Agent\Agent;
 use App\Http\Helpers\RoutesHelper;
@@ -78,6 +79,10 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('CookiesConsent', function(){
             return !VisitorHelper::hasConsentedToCookies();
+        });
+
+        Blade::if('flash', function($variable) {
+            return Session::has($variable);
         });
 
     }
