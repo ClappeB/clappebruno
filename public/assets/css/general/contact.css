@@ -58,6 +58,7 @@
   transform: rotateZ(0deg);
 }
 .animation-adding:nth-child(2) {
+  height: calc(100% + 1px);
   transform: rotateZ(180deg);
 }
 .animation-adding:before {

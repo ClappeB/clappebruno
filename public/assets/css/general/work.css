@@ -113,9 +113,13 @@
     column-count: 1;
   }
 }
-.masonry button {
+.masonry a {
+  display: block;
+}
+.masonry a > div {
   padding: 2px;
   margin: 0.5em;
+  margin-bottom: 0.1em;
 }
 
 /*# sourceMappingURL=work.css.map */

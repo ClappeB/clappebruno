@@ -217,14 +217,14 @@ hr {
 }
 
 %work-div-core {
-    height: calc(100vh - 3.725em);
+    height: calc(100vh - 4em);
     width: 100%;
 }
 
 .work-div {
     @extend %work-div-core;
     position: absolute;
-    top: 3.725em;
+    top: 4em;
     left: 0;
     background-color: rgba(50,50,50,0.4);
     color: white;
@@ -247,10 +247,10 @@ hr {
 }
 
 .work-div-mobile {
-    height: calc(100vh - 3.725em);
+    height: calc(95vh - 4em);
     width: 100%;
     position: absolute;
-    top: 3.725em;
+    top: 4em;
     left: 0;
     background-color: rgba(50,50,50,0.4);
     color: white;

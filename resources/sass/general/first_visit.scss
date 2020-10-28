@@ -1,5 +1,10 @@
 $welcome-message-duration: 1.5s;
 
+.FV-background {
+    position: fixed;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 50;
+}
 
 .welcome-message {
     font-size: 8em;
@@ -52,9 +57,9 @@ $welcome-message-duration: 1.5s;
 
 .FV-flag {
     font-size: 1.5em;
-    border: black solid 2px;
     border-radius: 0.3em;
-    overflow: hidden;
+    background-color: transparent;
+    border: none;
 
     &:hover, &:focus{
         background-color: transparent;
@@ -67,6 +72,8 @@ $welcome-message-duration: 1.5s;
 .FV-flag-img {
     width: 2.2em;
     height: 1.4em;
+    border: black solid 4px;
+    border-radius: 0.3em;
 
     &:focus {
         border: none;

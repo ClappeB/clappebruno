@@ -1,3 +1,9 @@
+.FV-background {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 50;
+}
+
 .welcome-message {
   font-size: 8em;
   animation: welcome-message 1.5s 1 forwards;
@@ -57,9 +63,9 @@
 
 .FV-flag {
   font-size: 1.5em;
-  border: black solid 2px;
   border-radius: 0.3em;
-  overflow: hidden;
+  background-color: transparent;
+  border: none;
 }
 .FV-flag:hover, .FV-flag:focus {
   background-color: transparent;
@@ -70,6 +76,8 @@
 .FV-flag-img {
   width: 2.2em;
   height: 1.4em;
+  border: black solid 4px;
+  border-radius: 0.3em;
 }
 .FV-flag-img:focus {
   border: none;

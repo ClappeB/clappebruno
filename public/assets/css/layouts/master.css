@@ -28,20 +28,20 @@ main {
 
 nav {
   font-family: "walter-turncoat";
-  min-height: 3.725em;
+  min-height: 4em;
   z-index: 10;
 }
 
 .body-mobile, .body-desktop {
   font-family: "Segoe UI", "sans-serif";
-  margin-bottom: 200px;
+  margin-bottom: 180px;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  min-height: 200px;
+  min-height: 180px;
   z-index: 10;
 }
 

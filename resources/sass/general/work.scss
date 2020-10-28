@@ -153,9 +153,14 @@ $scrollbar-arrow-color: rgb(150,150,150);
         column-count: 1;
     }
 
-    button {
-        padding: 2px;
-        margin: 0.5em;
+    & a {
+        display: block;
+
+        & > div {
+            padding: 2px;
+            margin: 0.5em;
+            margin-bottom: 0.1em;
+        }
     }
 
 }

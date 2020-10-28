@@ -196,17 +196,17 @@ main {
   justify-content: space-around;
 }
 
-.personnality-span {
+.personality-span {
   display: inline-block;
 }
 
-.personnality-word {
+.personality-word {
   font-size: 1.1em;
   font-style: italic;
   margin: 0;
 }
 @media (max-width: 767px) {
-  .personnality-word {
+  .personality-word {
     font-size: calc(0.65em + 1vw);
   }
 }

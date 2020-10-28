@@ -7,6 +7,8 @@
 // Variables
 @import "global_style";
 
+$footer-size: 180px;
+
 html {
     position: relative;
     min-height: 100%;
@@ -21,13 +23,13 @@ main {
 
 nav {
     font-family: $walter-turncoat;
-    min-height: 3.725em;
+    min-height: 4em;
     z-index: 10;
 }
 
 %body-base {
     font-family: $font-base, $font-default;
-    margin-bottom: 200px;
+    margin-bottom: $footer-size;
 }
 
 .body-desktop {
@@ -42,6 +44,6 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    min-height: 200px;
+    min-height: $footer-size;
     z-index: 10;
 }

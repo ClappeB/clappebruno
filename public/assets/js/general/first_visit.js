@@ -43,7 +43,6 @@ function FV_addFlags(){
         linkFlag.onclick=function(){FV_languageChoose(flagNames[i])};
         linkFlag.classList.add("FV-flag", "p-0", "mx-lg-5", "mx-md-3", "m-2");
         linkFlag.id=flagNames[i];
-        //flag.tabIndex=0;
         linkFlag.onmouseenter=function(){FV_flagFocus(this)};
         linkFlag.append(flag);
 
@@ -71,10 +70,7 @@ function FV_languageChoose(language) {
 
 function FV_initStyle(){
     FV_Row.classList.add("row", "justify-content-center", "align-items-center", "h-100", "w-100",
-        "text-center", "p-0", "m-0");
-    FV_Row.style.position="fixed";
-    FV_Row.style.backgroundColor="transparent";
-    FV_Row.style.zIndex="10";
+        "text-center", "p-0", "m-0", "FV-background");
     FV_Row.id='FV_Row';
 
     FV_Container.classList.add("container-fluid", "p-0");
@@ -97,10 +93,6 @@ function FV_welcome(){
     FV_changeDisplayedText(FV_translation(defaultLanguage, "welcome")+' !');
     FV_Text.classList.add('welcome-message');
     FV_Decorating_Div.forEach(div => div.classList.remove("no-display"));
-}
-
-function FV_blackScreen(){
-    FV_Row.style.backgroundColor="rgba(0,0,0,0.6)";
 }
 
 function FV_choosingLanguage(){
@@ -169,7 +161,6 @@ function getCSRFToken(){
 }
 
 $(document).ready(function() {
-    FV_blackScreen();
     setTimeout(FV_welcome, 500);
     setTimeout(FV_choosingLanguage, 2000);
 });

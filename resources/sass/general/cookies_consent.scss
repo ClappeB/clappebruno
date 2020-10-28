@@ -2,7 +2,7 @@ $side-color: rgba(0,200,0,0.8);
 $center-color: rgba(0,100,0,0.9);
 
 .CC_Row {
-    z-index: 50;
+    z-index: 30;
     background-image: linear-gradient(to right, $side-color 0%, $center-color 15%, $center-color 85%, $side-color 100%);
     position: fixed;
     bottom: 0;
@@ -73,4 +73,13 @@ $center-color: rgba(0,100,0,0.9);
 .modal-header{
     @extend %modal-border;
     border-bottom: none;
+}
+
+.CC_Consent_Icon {
+    pointer-events: none;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 2%;
+    top: calc(50% - 10px);
 }

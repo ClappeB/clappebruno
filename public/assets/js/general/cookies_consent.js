@@ -4,11 +4,13 @@
     var CC_Row = document.createElement("div");
     var CC_Button_Div = document.createElement("div");
     var CC_Consent_Button = document.createElement("button");
+    var CC_Consent_Icon = document.createElement("span");
 
     CC_initElements();
     createLinkAndModalBoxForMore();
 
     CC_Button_Div.append(CC_Consent_Button);
+    CC_Button_Div.append(CC_Consent_Icon);
     CC_Row.append(CC_Button_Div);
     html.insertBefore(CC_Row, html.firstChild.nextSibling);
 }
@@ -24,6 +26,12 @@ function CC_initElements(){
     CC_Consent_Button.textContent=CC_translation(defaultLanguage, 'cookies-message')+' ';
     CC_Consent_Button.id="consentButton";
     CC_Consent_Button.onclick=function(){$('#consentButton').tooltip('hide'); CC_sendConsent();};
+
+    CC_Consent_Icon.classList.add("CC_Consent_Icon");
+    CC_Consent_Icon.innerHTML=
+        "<svg width=\"1em\" height=\"1em\" viewBox=\"0 0 16 16\" class=\"bi bi-check-circle-fill\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+        "  <path fill-rule=\"evenodd\" d=\"M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z\"/>\n" +
+        "</svg>";
 }
 
 function CC_prepareTooltipOnConsentButton(){

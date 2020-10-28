@@ -4,7 +4,7 @@
   transition: width 0.7s, margin-top 0.7s;
 }
 .footer-logo:hover {
-  margin-top: 0.1em;
+  margin-top: 0em;
   width: 7em;
 }
 

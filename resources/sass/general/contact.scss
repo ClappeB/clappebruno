@@ -70,6 +70,7 @@ $text-area-color-focus: rgba(255,255,255,1);
     }
 
     &:nth-child(2) {
+        height: calc(100% + 1px);
         transform: rotateZ(180deg);
     }
 

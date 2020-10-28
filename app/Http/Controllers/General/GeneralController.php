@@ -30,6 +30,7 @@ class GeneralController extends Controller
             if($route_exploded[0]=="work_page"){
                 $newRoute = $route_exploded[0].RoutesHelper::LOCALE_SEPARATOR.App::getLocale();
                 $previous_url_exploded = explode('/', back()->getTargetUrl());
+                $previous_url_exploded[4] = explode('?', $previous_url_exploded[4])[0];
                 return (request()->ajax()) ? \route($newRoute, ['slug'=>WorkHelper::retrieve_work_by_slug($previous_url_exploded[4])['slug']])
                     : redirect(\route($newRoute, ['slug'=>WorkHelper::retrieve_work_by_slug($previous_url_exploded[4])['slug']]));
             }
@@ -76,6 +77,7 @@ class GeneralController extends Controller
 
     public function work_page($slug){
         $work = WorkHelper::retrieve_work_by_slug($slug);
+        if(!is_array($work)){return back();}
         return view('general.work_page', compact("work"));
     }
 
